@@ -14,5 +14,6 @@ import java.util.List;
 public interface ProductoDAO {
 
     public void addProducto(Producto producto) throws Exception;
+    public Producto getProducto(Integer prod_codigo) throws Exception;
     public List<Producto> listProducto() throws Exception;
 }

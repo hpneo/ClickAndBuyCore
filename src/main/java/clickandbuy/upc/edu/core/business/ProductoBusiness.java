@@ -16,9 +16,14 @@ import java.util.List;
 public class ProductoBusiness {
     private ProductoDAO productodao = new ProductoImpl();
     
-    public void addProducot(Producto producto) throws Exception
+    public void addProducto(Producto producto) throws Exception
     { 
         productodao.addProducto(producto);
+    }
+    
+    public Producto getProductoByCode(Integer prod_codigo) throws Exception
+    {
+      return productodao.getProducto(prod_codigo);
     }
     
     public List<Producto> listProducto() throws Exception

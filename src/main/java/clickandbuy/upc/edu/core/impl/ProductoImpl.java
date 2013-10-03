@@ -28,6 +28,16 @@ public class ProductoImpl implements ProductoDAO{
         session.beginTransaction().begin();
         
     }
+    
+    public Producto getProducto(Integer prod_codigo) throws Exception {
+      session = HibernateUtil.getSessionFactory().openSession();
+      
+      final String hql = "select c from Producto c where prod_codigo=:codigo";
+      final Query query = session.createQuery(hql);
+      query.setInteger("codigo", prod_codigo);
+      
+      return (Producto) query.uniqueResult();
+    }
 
     public List<Producto> listProducto() throws Exception {
         
