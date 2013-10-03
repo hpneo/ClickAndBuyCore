@@ -12,8 +12,8 @@ import clickandbuy.upc.edu.core.entity.Usuario;
  */
 public interface UsuarioDAO {
  
-    public void addUsuario(Usuario usuario) throws Exception;
+    public boolean addUsuario(Usuario usuario) throws Exception;
     public Usuario getUsuario(String usu_nickname) throws Exception;
-    public void deleteUsuario(Usuario usuario) throws Exception;
+    public boolean deleteUsuario(Usuario usuario) throws Exception;
     
 }

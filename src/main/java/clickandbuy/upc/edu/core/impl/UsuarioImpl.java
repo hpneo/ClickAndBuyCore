@@ -7,6 +7,7 @@ package clickandbuy.upc.edu.core.impl;
 import clickandbuy.upc.edu.core.dao.UsuarioDAO;
 import clickandbuy.upc.edu.core.entity.Usuario;
 import clickandbuy.upc.edu.core.util.HibernateUtil;
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
@@ -17,15 +18,22 @@ import org.hibernate.Session;
 public class UsuarioImpl implements UsuarioDAO{
 
     private Session session;
+    private boolean bool;
     
-    public void addUsuario(Usuario usuario) throws Exception {
+    public boolean addUsuario(Usuario usuario) throws Exception {
       
       session = HibernateUtil.getSessionFactory().openSession();
-      
+      bool = false;
+      try{
       session.beginTransaction();
       session.merge(usuario);
       session.beginTransaction().commit();
-        
+      bool = true;
+      }catch(HibernateException ex)
+      {
+          ex.printStackTrace();
+      }
+      return bool;
     }
 
     public Usuario getUsuario(String usu_nickname) throws Exception {
@@ -39,14 +47,21 @@ public class UsuarioImpl implements UsuarioDAO{
         return (Usuario) query.uniqueResult();
     }
 
-    public void deleteUsuario(Usuario usuario) throws Exception {
+    public boolean deleteUsuario(Usuario usuario) throws Exception {
         
         session = HibernateUtil.getSessionFactory().openSession();
-        
+        bool = false;
+        try{
         session.beginTransaction();
         session.delete(usuario);
         session.beginTransaction().commit();
+        bool = true;
+        }catch(HibernateException ex)
+        {
+            ex.printStackTrace();
+        }
         
+        return bool;
     }
     
 }

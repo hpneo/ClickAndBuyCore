@@ -18,17 +18,21 @@ public class UsuarioBusiness {
     private RolBusiness rolBusiness;
     private Usuario usuario;
     
-    public void addUsuario(Usuario usuario) throws Exception
+    public boolean addUsuario(Usuario usuario) throws Exception
     {
-        usuariodao.addUsuario(usuario);
+       if(!existeUsuario(usuario.getUsuNombreusuario())) 
+        if(usuariodao.addUsuario(usuario))
+            return true;
+        
+        return false;
     }
     
-    public Usuario getUsuarioByCode(String usu_nickname) throws Exception
+    public Usuario getUsuarioByUserName(String usu_nickname) throws Exception
     {
         return usuariodao.getUsuario(usu_nickname);
     }
     
-    public Boolean existeUsuario(String userNickname) throws Exception
+    public boolean existeUsuario(String userNickname) throws Exception
     {
         Boolean existe = false;
         
@@ -52,8 +56,12 @@ public class UsuarioBusiness {
     }
     
     
-    public void deleteUsuario(Usuario usuario) throws Exception
+    public Boolean deleteUsuario(Usuario usuario) throws Exception
     {
-        usuariodao.deleteUsuario(usuario);
+        if(usuariodao.deleteUsuario(usuario))
+            return true;
+        
+        return false;
+        
     }
 }
