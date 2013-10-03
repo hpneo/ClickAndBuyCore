@@ -14,27 +14,28 @@ import clickandbuy.upc.edu.core.impl.UsuarioImpl;
  */
 public class UsuarioBusiness {
     
-    private UsuarioDAO usuariodao = new UsuarioImpl();
+    private UsuarioDAO usuarioDao = new UsuarioImpl();
     private RolBusiness rolBusiness;
     private Usuario usuario;
     
     public void addUsuario(Usuario usuario) throws Exception
     {
-        usuariodao.addUsuario(usuario);
+        usuarioDao.addUsuario(usuario);
     }
     
     public Usuario getUsuarioByCode(String usu_nickname) throws Exception
     {
-        return usuariodao.getUsuario(usu_nickname);
+        return usuarioDao.getUsuario(usu_nickname);
     }
     
     public Boolean existeUsuario(String userNickname) throws Exception
     {
         Boolean existe = false;
         
-        usuario = usuariodao.getUsuario(userNickname);
-        if(usuario != null)
-            existe = true;
+        usuario = usuarioDao.getUsuario(userNickname);
+        if(usuario != null) {
+	  existe = true;
+	}
         
         return existe;
     }
@@ -42,11 +43,13 @@ public class UsuarioBusiness {
     public Boolean autenticarUsuario(String userNickname, String userPassword) throws Exception
     {
         Boolean resultado = false;
-        
-        usuario = usuariodao.getUsuario(userNickname);
-        if(usuario != null)
-            if(usuario.getUsuContrasenia().equals(userPassword))
-                resultado = true;
+        usuario = usuarioDao.getUsuario(userNickname);
+	
+        if(usuario != null) {
+	  if(usuario.getUsuContrasenia().equals(userPassword)) {
+	    resultado = true;
+	  }
+	}
         
         return resultado;
     }
@@ -54,6 +57,6 @@ public class UsuarioBusiness {
     
     public void deleteUsuario(Usuario usuario) throws Exception
     {
-        usuariodao.deleteUsuario(usuario);
+        usuarioDao.deleteUsuario(usuario);
     }
 }
