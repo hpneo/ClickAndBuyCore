@@ -40,7 +40,7 @@ public class UsuarioImpl implements UsuarioDAO{
         
         session = HibernateUtil.getSessionFactory().openSession();
         
-        final  String hql = "select u from Usuario u where usu_nombreusuario=:nickname";
+        final String hql = "select u from Usuario u where usu_nombreusuario=:nickname";
         final Query query = session.createQuery(hql);
         query.setString("nickname", usu_nickname);
         
