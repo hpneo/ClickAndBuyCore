@@ -31,6 +31,7 @@ public class UsuarioBusinessTest extends TestCase {
     /**
      * Test of addUsuario method, of class UsuarioBusiness.
      */
+    
     public void testAddUsuario() throws Exception {
         System.out.println("addUsuario");
         Usuario usuario = new Usuario();
@@ -57,7 +58,7 @@ public class UsuarioBusinessTest extends TestCase {
         expResult.setUsuNombreusuario("garyfimo");
         Rol rol = new Rol();
         rol.setRolCodigo(00007);
-        rol.setRolNombre("ADMINISTRADOR");
+        rol.setRolNombre("GERENTE");
         expResult.setRol(rol);
         Usuario result = usuarioBusiness.getUsuarioByUserName(usu_nickname);
         assertEquals(expResult, result);
