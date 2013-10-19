@@ -11,24 +11,33 @@ import java.util.List;
 
 /**
  *
- * @author Garyfimo
+ * @author Piero
  */
 public class ProductoBusiness {
+
     private ProductoDAO productodao = new ProductoImpl();
-    
-    public void addProducto(Producto producto) throws Exception
-    { 
-        productodao.addProducto(producto);
+
+    public boolean addProducto(Producto producto) throws Exception {
+        return productodao.addProducto(producto);
     }
-    
-    public Producto getProductoByCode(Integer prod_codigo) throws Exception
-    {
-      return productodao.getProducto(prod_codigo);
+
+    public Producto getProductoByCode(Integer prod_codigo) throws Exception {
+        return productodao.getProducto(prod_codigo);
     }
-    
-    public List<Producto> listProducto() throws Exception
-    {
-        return productodao.listProducto();                
+
+    public void deleteProducto(Producto producto) throws Exception {
+        productodao.deleteProducto(producto);
     }
-    
+
+    public void updateProducto(Producto producto) throws Exception {
+        productodao.updateProducto(producto);
+    }
+
+    public List<Producto> listProducto() throws Exception {
+        return productodao.listProducto();
+    }
+
+    public List<Producto> listProductoxCategoria(Integer prod_codigocategoria) throws Exception {
+        return productodao.listProductoxCategoria(prod_codigocategoria);
+    }
 }

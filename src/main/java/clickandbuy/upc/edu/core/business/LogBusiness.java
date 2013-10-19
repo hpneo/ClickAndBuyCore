@@ -17,14 +17,12 @@ import java.util.List;
 public class LogBusiness {
 
     private LogDAO logdao = new LogImpl();
-    
-    public void addLog(Log log) throws Exception
-    {
+
+    public void addLog(Log log) throws Exception {
         logdao.addLog(log);
     }
-    
-    public List<Log> getLogByCliente(Cliente cliente) throws Exception
-    {
+
+    public List<Log> getLogByCliente(Cliente cliente) throws Exception {
         return logdao.listLog(cliente);
     }
 }

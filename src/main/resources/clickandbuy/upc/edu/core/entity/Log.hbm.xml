@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Sep 27, 2013 3:28:12 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Oct 16, 2013 8:23:14 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="clickandbuy.upc.edu.core.entity.Log" table="log" catalog="clickandbuy">
-        <id name="logCodigo" type="int">
+        <id name="logCodigo" type="java.lang.Integer">
             <column name="log_codigo" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="cliente" class="clickandbuy.upc.edu.core.entity.Cliente" fetch="select">
             <column name="log_codigocliente" not-null="true" />
@@ -21,7 +21,7 @@
             <column name="log_ip" length="32" not-null="true" />
         </property>
         <property name="logExcepcion" type="string">
-            <column name="log_excepcion" length="100" not-null="true" />
+            <column name="log_excepcion" length="200" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

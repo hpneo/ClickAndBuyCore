@@ -14,21 +14,18 @@ import java.util.List;
  * @author Garyfimo
  */
 public class CategoriaBusiness {
-    
+
     private CategoriaDAO categoriadao = new CategoriaImpl();
-    
-    public void addCategoria(Categoria categoria) throws Exception
-    {
+
+    public void addCategoria(Categoria categoria) throws Exception {
         categoriadao.addCategoria(categoria);
     }
-    
-    public Categoria getCategoriaByCode(Integer cat_codigo) throws Exception
-    {
+
+    public Categoria getCategoriaByCode(Integer cat_codigo) throws Exception {
         return categoriadao.getCategoria(cat_codigo);
     }
-    
-    public List<Categoria> listCategoria() throws Exception
-    {
+
+    public List<Categoria> listCategoria() throws Exception {
         return categoriadao.listCategoria();
-    }    
+    }
 }

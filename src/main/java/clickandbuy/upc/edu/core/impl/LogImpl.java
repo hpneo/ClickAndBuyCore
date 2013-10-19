@@ -16,27 +16,27 @@ import org.hibernate.Session;
  *
  * @author Garyfimo
  */
-public class LogImpl implements LogDAO{
+public class LogImpl implements LogDAO {
 
     private Session session;
-    
+
     public void addLog(Log log) throws Exception {
         session = HibernateUtil.getSessionFactory().openSession();
-        
+
         session.beginTransaction();
-        session.merge(log);              
+        session.merge(log);
         session.beginTransaction().commit();
-        
+
     }
 
     public List<Log> listLog(Cliente cliente) throws Exception {
         session = HibernateUtil.getSessionFactory().openSession();
-        
+
         final String hql = "select l from Log l where log_codigocliente=:codigo";
         final Query query = session.createQuery(hql);
         query.setInteger("log_codigocliente", cliente.getCliCodigo());
-        
+
         return query.list();
-        
+
     }
 }

@@ -15,6 +15,6 @@ import java.util.List;
 public interface LogDAO {
 
     public void addLog(Log log) throws Exception;
+
     public List<Log> listLog(Cliente cliente) throws Exception;
-    
 }

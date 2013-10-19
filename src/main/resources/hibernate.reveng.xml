@@ -2,12 +2,12 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="clickandbuy"/>
-  <table-filter match-name="rol"/>
   <table-filter match-name="producto"/>
   <table-filter match-name="usuario"/>
-  <table-filter match-name="carrito"/>
-  <table-filter match-name="historialcarrito"/>
-  <table-filter match-name="log"/>
+  <table-filter match-name="rol"/>
+  <table-filter match-name="productoxpedido"/>
   <table-filter match-name="categoria"/>
+  <table-filter match-name="pedido"/>
   <table-filter match-name="cliente"/>
+  <table-filter match-name="log"/>
 </hibernate-reverse-engineering>

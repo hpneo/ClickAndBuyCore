@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Sep 27, 2013 3:28:12 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Oct 16, 2013 8:23:14 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="clickandbuy.upc.edu.core.entity.Categoria" table="categoria" catalog="clickandbuy">
         <id name="catCodigo" type="java.lang.Integer">
@@ -9,7 +9,7 @@
             <generator class="identity" />
         </id>
         <property name="catNombre" type="string">
-            <column name="cat_nombre" length="30" not-null="true" />
+            <column name="cat_nombre" length="100" not-null="true" />
         </property>
         <set name="productos" inverse="true">
             <key>

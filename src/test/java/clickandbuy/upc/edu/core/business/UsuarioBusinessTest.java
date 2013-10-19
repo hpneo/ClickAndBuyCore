@@ -6,105 +6,73 @@ package clickandbuy.upc.edu.core.business;
 
 import clickandbuy.upc.edu.core.entity.Rol;
 import clickandbuy.upc.edu.core.entity.Usuario;
-import junit.framework.TestCase;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import org.junit.FixMethodOrder;
+import org.junit.runners.MethodSorters;
 
 /**
  *
  * @author Garyfimo
  */
-public class UsuarioBusinessTest extends TestCase {
-    
-    public UsuarioBusinessTest(String testName) {
-        super(testName);
-    }
-    
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-    
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
+
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+public class UsuarioBusinessTest {
+
+    public UsuarioBusinessTest() {
     }
 
-    /**
-     * Test of addUsuario method, of class UsuarioBusiness.
-     */
     
-    public void testAddUsuario() throws Exception {
+    @Test
+    public void testAGetUsuarioByUserName() throws Exception {
+        System.out.println("getUsuarioByUserName");
+        String usu_nickname = "garyfimo";
+        UsuarioBusiness usuarioBusiness = new UsuarioBusiness();
+
+        assertNotNull(usuarioBusiness.getUsuarioByUserName(usu_nickname));
+
+    }
+
+    @Test
+    public void testBExisteUsuario() throws Exception {
+        System.out.println("existeUsuario");
+        String userNickname = "garyfimo";
+        UsuarioBusiness usuarioBusiness = new UsuarioBusiness();
+
+        assertTrue(usuarioBusiness.existeUsuario(userNickname));
+
+    }
+
+    @Test
+    public void testCAutenticarUsuario() throws Exception {
+        System.out.println("autenticarUsuario");
+        String userNickname = "garyfimo";
+        String userPassword = "123456";
+        UsuarioBusiness usuarioBusiness = new UsuarioBusiness();
+
+        assertTrue(usuarioBusiness.autenticarUsuario(userNickname, userPassword));
+
+    }
+
+    @Test
+    public void testDDeleteUsuario() throws Exception {
+        System.out.println("deleteUsuario");
+        String usuarioNickname = "garyfimo";
+        UsuarioBusiness usuarioBusiness = new UsuarioBusiness();
+        assertTrue(usuarioBusiness.deleteUsuario(usuarioNickname));
+    }
+    @Test    
+    public void testEAddUsuario() throws Exception {
         System.out.println("addUsuario");
         Usuario usuario = new Usuario();
         UsuarioBusiness usuarioBusiness = new UsuarioBusiness();
         usuario.setUsuContrasenia("123456");
-        usuario.setUsuNombreusuario("piero9212");
+        usuario.setUsuNombreusuario("garyfimo");
         Rol rol = new Rol();
-        rol.setRolCodigo(00007);
-        rol.setRolNombre("GERENTE");
+        rol.setRolCodigo(00001);
+        rol.setRolNombre("ADMINISTRADOR");
         usuario.setRol(rol);
-        assertEquals(usuarioBusiness.addUsuario(usuario),true);
+        assertTrue(usuarioBusiness.addUsuario(usuario));
     }
 
-    /**
-     * Test of getUsuarioByCode method, of class UsuarioBusiness.
-     */
-    public void testGetUsuarioByUserName() throws Exception {
-        System.out.println("getUsuarioByCode");
-        String usu_nickname = "garyfimo";
-        UsuarioBusiness usuarioBusiness = new UsuarioBusiness();
-        Usuario expResult = new Usuario();
-        expResult.setUsuCodigo(00005);
-        expResult.setUsuContrasenia("123456");
-        expResult.setUsuNombreusuario("garyfimo");
-        Rol rol = new Rol();
-        rol.setRolCodigo(00007);
-        rol.setRolNombre("GERENTE");
-        expResult.setRol(rol);
-        Usuario result = usuarioBusiness.getUsuarioByUserName(usu_nickname);
-        assertEquals(expResult, result);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of existeUsuario method, of class UsuarioBusiness.
-     */
-    public void testExisteUsuario() throws Exception {
-        System.out.println("existeUsuario");
-        String userNickname = "";
-        UsuarioBusiness instance = new UsuarioBusiness();
-        Boolean expResult = null;
-        Boolean result = instance.existeUsuario(userNickname);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of autenticarUsuario method, of class UsuarioBusiness.
-     */
-    public void testAutenticarUsuario() throws Exception {
-        System.out.println("autenticarUsuario");
-        String userNickname = "";
-        String userPassword = "";
-        UsuarioBusiness instance = new UsuarioBusiness();
-        Boolean expResult = null;
-        Boolean result = instance.autenticarUsuario(userNickname, userPassword);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of deleteUsuario method, of class UsuarioBusiness.
-     */
-    public void testDeleteUsuario() throws Exception {
-        System.out.println("deleteUsuario");
-        Usuario usuario = null;
-        UsuarioBusiness instance = new UsuarioBusiness();
-        instance.deleteUsuario(usuario);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 }

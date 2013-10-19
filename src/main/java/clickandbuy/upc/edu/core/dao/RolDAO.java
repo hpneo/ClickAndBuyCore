@@ -5,14 +5,17 @@
 package clickandbuy.upc.edu.core.dao;
 
 import clickandbuy.upc.edu.core.entity.Rol;
+import java.util.List;
 
 /**
  *
  * @author Garyfimo
  */
 public interface RolDAO {
-    
+
     public Rol getRolName(Integer rol_codigo) throws Exception;
+
     public void addRol(Rol rol) throws Exception;
     
+    public List<Rol> listRoles() throws Exception;
 }

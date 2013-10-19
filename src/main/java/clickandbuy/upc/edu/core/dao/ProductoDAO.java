@@ -9,11 +9,19 @@ import java.util.List;
 
 /**
  *
- * @author Garyfimo
+ * @author Piero
  */
 public interface ProductoDAO {
 
-    public void addProducto(Producto producto) throws Exception;
+    public boolean addProducto(Producto producto) throws Exception;
+
     public Producto getProducto(Integer prod_codigo) throws Exception;
+
+    public void deleteProducto(Producto producto) throws Exception;
+
+    public void updateProducto(Producto producto) throws Exception;
+
     public List<Producto> listProducto() throws Exception;
+
+    public List<Producto> listProductoxCategoria(Integer prod_codigocategoria) throws Exception;
 }

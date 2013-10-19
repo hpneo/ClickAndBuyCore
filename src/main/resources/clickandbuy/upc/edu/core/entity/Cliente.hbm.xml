@@ -1,39 +1,39 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Sep 27, 2013 3:28:12 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Oct 16, 2013 8:23:14 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="clickandbuy.upc.edu.core.entity.Cliente" table="cliente" catalog="clickandbuy">
-        <id name="cliCodigo" type="int">
+        <id name="cliCodigo" type="java.lang.Integer">
             <column name="cli_codigo" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="cliNombreusuario" type="string">
-            <column name="cli_nombreusuario" length="20" />
+            <column name="cli_nombreusuario" length="20" not-null="true" />
         </property>
         <property name="cliContrasenia" type="string">
             <column name="cli_contrasenia" length="15" />
         </property>
         <property name="cliNombreempresa" type="string">
-            <column name="cli_nombreempresa" length="45" />
+            <column name="cli_nombreempresa" length="100" not-null="true" />
         </property>
         <property name="cliDireccion" type="string">
-            <column name="cli_direccion" length="70" />
+            <column name="cli_direccion" length="100" not-null="true" />
         </property>
-        <property name="cliRuc" type="java.lang.Long">
-            <column name="cli_RUC" />
+        <property name="cliRuc" type="string">
+            <column name="cli_RUC" length="11" not-null="true" />
         </property>
+        <set name="pedidos" inverse="true">
+            <key>
+                <column name="ped_codigocliente" not-null="true" />
+            </key>
+            <one-to-many class="clickandbuy.upc.edu.core.entity.Pedido" />
+        </set>
         <set name="logs" inverse="true">
             <key>
                 <column name="log_codigocliente" not-null="true" />
             </key>
             <one-to-many class="clickandbuy.upc.edu.core.entity.Log" />
-        </set>
-        <set name="historialcarritos" inverse="true">
-            <key>
-                <column name="his_codigocliente" not-null="true" />
-            </key>
-            <one-to-many class="clickandbuy.upc.edu.core.entity.Historialcarrito" />
         </set>
     </class>
 </hibernate-mapping>

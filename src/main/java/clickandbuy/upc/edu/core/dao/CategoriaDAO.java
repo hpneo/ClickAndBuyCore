@@ -12,9 +12,10 @@ import java.util.List;
  * @author Garyfimo
  */
 public interface CategoriaDAO {
-    
+
     public void addCategoria(Categoria categoria) throws Exception;
+
     public Categoria getCategoria(Integer cat_codigo) throws Exception;
+
     public List<Categoria> listCategoria() throws Exception;
-    
 }
