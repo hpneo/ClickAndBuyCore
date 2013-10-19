@@ -54,7 +54,6 @@ public class ProductopedidoImpl implements ProductoxpedidoDAO {
         final Query query = session.createQuery(s);
         query.setInteger("codigo", proped_codigopedido);
         query.setInteger("codigop", proped_codigoproducto);
-        session.close();
         return (Productoxpedido) query.uniqueResult();
     }
 
