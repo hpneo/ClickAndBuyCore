@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 16, 2013 8:23:14 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="clickandbuy.upc.edu.core.entity.Pedido" table="pedido" catalog="clickandbuy">
+        <id name="pedCodigo" type="java.lang.Integer">
+            <column name="ped_codigo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cliente" class="clickandbuy.upc.edu.core.entity.Cliente" fetch="select">
+            <column name="ped_codigocliente" not-null="true" />
+        </many-to-one>
+        <property name="pedFechahora" type="timestamp">
+            <column name="ped_fechahora" length="19" />
+        </property>
+        <property name="pedTipo" type="string">
+            <column name="ped_tipo" length="50" not-null="true" />
+        </property>
+	<bag name="productoxpedidos" cascade="all">
+            <key>
+	      <column name="proped_codigopedido" not-null="true" />
+	    </key>
+            <one-to-many class="clickandbuy.upc.edu.core.entity.Productoxpedido" />
+	</bag>
+    </class>
+</hibernate-mapping>
