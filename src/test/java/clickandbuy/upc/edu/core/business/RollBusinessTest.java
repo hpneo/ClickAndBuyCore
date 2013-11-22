@@ -20,7 +20,17 @@ import org.junit.runners.MethodSorters;
 public class RollBusinessTest {
 public RollBusinessTest(){
 }
-     
+        @Test
+    public void testAGetRollByUserName() throws Exception {
+        System.out.println("getRoll");
+          int usu_roll =10;
+        RolBusiness rol  = new RolBusiness();
+
+        assertNotNull(rol.getRolNameByCode(usu_roll));
+
+    }
+
+   
 }
 /*
  * To change this template, choose Tools | Templates
