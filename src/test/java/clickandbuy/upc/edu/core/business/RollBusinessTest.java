@@ -29,7 +29,18 @@ public RollBusinessTest(){
         assertNotNull(rol.getRolNameByCode(usu_roll));
 
     }
+        
+ @Test
+    public void testBExisterol() throws Exception {
+        System.out.println("existerol");
+       
+          Integer usu=5;
+        RolBusiness rol  = new RolBusiness();
+       // assertTrue(rol.getRolNameByCode(usu));
 
+    }
+
+   
    
 }
 /*
