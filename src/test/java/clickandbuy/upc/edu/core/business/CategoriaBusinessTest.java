@@ -22,5 +22,4 @@ public class CategoriaBusinessTest extends TestCase{
         super.tearDown();
     }
     
-    public void
 }
