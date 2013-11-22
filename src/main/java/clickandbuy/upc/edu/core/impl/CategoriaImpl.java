@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package clickandbuy.upc.edu.core.impl;
 
 import clickandbuy.upc.edu.core.dao.CategoriaDAO;
@@ -12,10 +8,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-/**
- *
- * @author Garyfimo
- */
 public class CategoriaImpl implements CategoriaDAO {
 
     Session session;
@@ -39,7 +31,14 @@ public class CategoriaImpl implements CategoriaDAO {
         query.setInteger("codigo", cat_codigo);
         return (Categoria) query.uniqueResult();
     }
-
+    
+    public Categoria getCategoriaXNombre(String nombre) throws Exception {
+        session = HibernateUtil.getSessionFactory().openSession();
+        final String hql = "select n from Categoria n where cat_nombre=:nombre";
+        final Query query = session.createQuery(hql);        
+        return (Categoria) query.uniqueResult();
+    }
+    
     public List<Categoria> listCategoria() throws Exception {
         session = HibernateUtil.getSessionFactory().openSession();
         final String hql = "from Categoria";
