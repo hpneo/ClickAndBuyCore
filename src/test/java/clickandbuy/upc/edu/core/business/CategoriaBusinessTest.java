@@ -1,5 +1,6 @@
 package clickandbuy.upc.edu.core.business;
 
+import clickandbuy.upc.edu.core.entity.Categoria;
 import junit.framework.TestCase;
 
 /**
@@ -22,4 +23,11 @@ public class CategoriaBusinessTest extends TestCase{
         super.tearDown();
     }
     
+    public void testExisteCategoria() throws Exception {
+        System.out.println("Existe categoría");
+        String nomCategoria = "Libro";
+        CategoriaBusiness instance = new CategoriaBusiness();        
+        Categoria categoria = instance.getCategoriaXNombre(nomCategoria);
+        assertEquals(categoria.getCatNombre(), nomCategoria);        
+    }
 }
