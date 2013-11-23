@@ -22,7 +22,7 @@ public class HibernateUtil {
         try {
             sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
         } catch (ExceptionInInitializerError ex) { 
-            throw new RuntimeException(HibernateUtil.class.getName());
+            throw new RuntimeException(HibernateUtil.class.getName(),ex);
         }
     }
 
