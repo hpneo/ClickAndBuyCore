@@ -25,7 +25,7 @@ public interface UsuarioDAO {
 
     public boolean deleteUsuario(Usuario usuario) throws UsuarioException;
 
-    public List<Usuario> findUsuariobyRol(Integer usuCodigorol) throws Exception;
+    public List<Usuario> findUsuariobyRol(Integer usuCodigorol) throws UsuarioException;
 
     public List<Usuario> findUsuario() throws UsuarioException;
 }
