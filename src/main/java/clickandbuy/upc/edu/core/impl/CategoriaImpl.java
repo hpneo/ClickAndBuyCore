@@ -19,8 +19,9 @@ public class CategoriaImpl implements CategoriaDAO {
             session.beginTransaction();
             session.merge(categoria);
             session.beginTransaction().commit();
-        } catch (HibernateException ex) {
-            ex.printStackTrace();
+        } catch (HibernateException ex)
+        {
+            throw new HibernateException(ex);
         }
     }
 

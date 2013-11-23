@@ -14,4 +14,6 @@ public class CategoriaException extends ClickandbuyException{
     {
         super(s);
     }
+
+    
 }
