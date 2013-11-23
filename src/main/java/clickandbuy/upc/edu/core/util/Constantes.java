@@ -18,4 +18,6 @@ public class Constantes {
     public static final int CARACTERES_NOMBREUSUARIO = 15;
     public static final int CARACTERES_CLIENTE = 15;
     public static final int CARACTERES_CONTRASENA = 8;
+    
+    public static final String CODIGO="codigo";
 }

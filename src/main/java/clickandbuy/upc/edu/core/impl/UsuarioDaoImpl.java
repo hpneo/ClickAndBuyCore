@@ -85,7 +85,6 @@ public class UsuarioDaoImpl implements UsuarioDAO {
             session.update(usuario);
             session.beginTransaction().commit();
         } catch (HibernateException ex) {
-            HibernateUtil.shutdown();
             throw new HibernateException(ex);
         }
         HibernateUtil.shutdown();

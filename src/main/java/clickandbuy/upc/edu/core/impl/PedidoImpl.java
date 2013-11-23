@@ -7,6 +7,7 @@ package clickandbuy.upc.edu.core.impl;
 import clickandbuy.upc.edu.core.dao.PedidoDAO;
 import clickandbuy.upc.edu.core.entity.Pedido;
 import clickandbuy.upc.edu.core.entity.Producto;
+import clickandbuy.upc.edu.core.util.Constantes;
 import clickandbuy.upc.edu.core.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -38,7 +39,7 @@ public class PedidoImpl implements PedidoDAO {
         session = HibernateUtil.getSessionFactory().openSession();
         final String s = "select c from Pedido c where ped_codigo=:codigo";
         final Query query = session.createQuery(s);
-        query.setInteger("codigo", ped_codigo);
+        query.setInteger(Constantes.CODIGO, ped_codigo);
         return (Pedido) query.uniqueResult();
     }
 
@@ -88,7 +89,7 @@ public class PedidoImpl implements PedidoDAO {
         session = HibernateUtil.getSessionFactory().openSession();
         final String s = "select c from Pedido c where ped_codigocliente=:codigo";
         final Query query = session.createQuery(s);
-        query.setInteger("codigo", ped_codigocliente);
+        query.setInteger(Constantes.CODIGO, ped_codigocliente);
         return query.list();
     }
 
@@ -97,7 +98,7 @@ public class PedidoImpl implements PedidoDAO {
         session = HibernateUtil.getSessionFactory().openSession();
         final String s = "select c from Pedido c where ped_codigocliente=:codigo and ped_tipo=:tipo";
         final Query query = session.createQuery(s);
-        query.setInteger("codigo", ped_codigocliente);
+        query.setInteger(Constantes.CODIGO, ped_codigocliente);
         query.setString("tipo", ped_tipo);
         return query.list();
     }
