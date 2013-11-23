@@ -8,8 +8,6 @@ import clickandbuy.upc.edu.core.dao.ClienteDAO;
 import clickandbuy.upc.edu.core.entity.Cliente;
 import clickandbuy.upc.edu.core.util.HibernateUtil;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -30,11 +28,7 @@ public class ClienteDaoImpl implements ClienteDAO {
             session.merge(cliente);
             session.beginTransaction().commit();
         } catch (HibernateException ex) {
-<<<<<<< HEAD
-            Logger.getLogger(ClienteDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
-=======
             throw new HibernateException(ex);
->>>>>>> 28c455c349210a566fe93b6a65a549d1a651e152
         }
         HibernateUtil.shutdown();
     }
@@ -47,11 +41,7 @@ public class ClienteDaoImpl implements ClienteDAO {
             session.update(cliente);
             session.beginTransaction().commit();
         } catch (HibernateException ex) {
-<<<<<<< HEAD
-            Logger.getLogger(ClienteDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
-=======
             throw new HibernateException(ex);
->>>>>>> 28c455c349210a566fe93b6a65a549d1a651e152
         }
         HibernateUtil.shutdown();
     }
@@ -64,11 +54,7 @@ public class ClienteDaoImpl implements ClienteDAO {
             session.delete(cliente);
             session.beginTransaction().commit();
         } catch (HibernateException ex) {
-<<<<<<< HEAD
-            Logger.getLogger(ClienteDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
-=======
             throw new HibernateException(ex);
->>>>>>> 28c455c349210a566fe93b6a65a549d1a651e152
         }
         HibernateUtil.shutdown();
     }

@@ -31,12 +31,8 @@ public class PedidoImpl implements PedidoDAO {
             session.merge(pedido);
             session.beginTransaction().commit();
         } catch (HibernateException ex) {
-<<<<<<< HEAD
-            Logger.getLogger(PedidoImpl.class.getName()).log(Level.SEVERE, null, ex);
-=======
             throw new HibernateException(ex);
->>>>>>> 28c455c349210a566fe93b6a65a549d1a651e152
-        }
+    }
     }
 
     @Override
@@ -56,11 +52,7 @@ public class PedidoImpl implements PedidoDAO {
             session.update(pedido);
             session.beginTransaction().commit();
         } catch (HibernateException ex) {
-<<<<<<< HEAD
-            Logger.getLogger(PedidoImpl.class.getName()).log(Level.SEVERE, null, ex);
-=======
             throw new HibernateException(ex);
->>>>>>> 28c455c349210a566fe93b6a65a549d1a651e152
         }
     }
 
@@ -72,11 +64,7 @@ public class PedidoImpl implements PedidoDAO {
             session.delete(pedido);
             session.beginTransaction().commit();
         } catch (HibernateException ex) {
-<<<<<<< HEAD
-            Logger.getLogger(PedidoImpl.class.getName()).log(Level.SEVERE, null, ex);
-=======
             throw new HibernateException(ex);
->>>>>>> 28c455c349210a566fe93b6a65a549d1a651e152
         }
     }
 

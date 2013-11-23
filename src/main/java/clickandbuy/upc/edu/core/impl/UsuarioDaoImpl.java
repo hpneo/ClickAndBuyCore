@@ -32,21 +32,13 @@ public class UsuarioDaoImpl implements UsuarioDAO {
             session.merge(usuario);
             session.beginTransaction().commit();
         } catch (HibernateException ex) {
-<<<<<<< HEAD
-            Logger.getLogger(UsuarioDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
-=======
             throw new HibernateException(ex);
->>>>>>> 28c455c349210a566fe93b6a65a549d1a651e152
         }
         HibernateUtil.shutdown();
     }
 
-<<<<<<< HEAD
     @Override
     public Usuario findUsuariobyUsername(String usu_nickname) {
-=======
-    public Usuario findUsuariobyUsername(String usu_nickname){
->>>>>>> 28c455c349210a566fe93b6a65a549d1a651e152
 
         session = HibernateUtil.getSessionFactory().openSession();
         //left join fetch u.rol
@@ -58,10 +50,7 @@ public class UsuarioDaoImpl implements UsuarioDAO {
         return (Usuario) query.uniqueResult();
     }
 
-<<<<<<< HEAD
     @Override
-=======
->>>>>>> 28c455c349210a566fe93b6a65a549d1a651e152
     public Usuario findUsuariobyCode(Integer usu_codigo) {
 
         session = HibernateUtil.getSessionFactory().openSession();
@@ -74,13 +63,8 @@ public class UsuarioDaoImpl implements UsuarioDAO {
         return (Usuario) query.uniqueResult();
     }
 
-<<<<<<< HEAD
     @Override
     public boolean deleteUsuario(Usuario usuario) {
-=======
-    public boolean deleteUsuario(Usuario usuario){
->>>>>>> 28c455c349210a566fe93b6a65a549d1a651e152
-
         session = HibernateUtil.getSessionFactory().openSession();
         bool = false;
         try {
@@ -89,37 +73,25 @@ public class UsuarioDaoImpl implements UsuarioDAO {
             session.beginTransaction().commit();
             bool = true;
         } catch (HibernateException ex) {
-<<<<<<< HEAD
-            Logger.getLogger(UsuarioDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
-=======
             throw new HibernateException(ex);
->>>>>>> 28c455c349210a566fe93b6a65a549d1a651e152
         }
         HibernateUtil.shutdown();
         return bool;
     }
 
-<<<<<<< HEAD
     @Override
     public void updateUsuario(Usuario usuario) {
-=======
-    public void updateUsuario(Usuario usuario){
->>>>>>> 28c455c349210a566fe93b6a65a549d1a651e152
         session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
             session.update(usuario);
             session.beginTransaction().commit();
         } catch (HibernateException ex) {
-<<<<<<< HEAD
-            Logger.getLogger(UsuarioDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
             HibernateUtil.shutdown();
-=======
             throw new HibernateException(ex);
->>>>>>> 28c455c349210a566fe93b6a65a549d1a651e152
         }
-            HibernateUtil.shutdown();
-        
+        HibernateUtil.shutdown();
+
     }
 
     @Override

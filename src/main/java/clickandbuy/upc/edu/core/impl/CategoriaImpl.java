@@ -4,8 +4,6 @@ import clickandbuy.upc.edu.core.dao.CategoriaDAO;
 import clickandbuy.upc.edu.core.entity.Categoria;
 import clickandbuy.upc.edu.core.util.HibernateUtil;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -23,11 +21,7 @@ public class CategoriaImpl implements CategoriaDAO {
             session.merge(categoria);
             session.beginTransaction().commit();
         } catch (HibernateException ex) {
-<<<<<<< HEAD
-            Logger.getLogger(CategoriaImpl.class.getName()).log(Level.SEVERE, null, ex);
-=======
             throw new HibernateException(ex);
->>>>>>> 28c455c349210a566fe93b6a65a549d1a651e152
         }
     }
 
