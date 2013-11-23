@@ -15,14 +15,12 @@ import org.junit.runners.MethodSorters;
  *
  * @author Garyfimo
  */
-
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class UsuarioBusinessTest {
 
     public UsuarioBusinessTest() {
     }
 
-    
     @Test
     public void testAGetUsuarioByUserName() throws Exception {
         System.out.println("getUsuarioByUserName");
@@ -61,7 +59,8 @@ public class UsuarioBusinessTest {
         UsuarioBusiness usuarioBusiness = new UsuarioBusiness();
         assertTrue(usuarioBusiness.deleteUsuario(usuarioNickname));
     }
-    @Test    
+
+    @Test
     public void testEAddUsuario() throws Exception {
         System.out.println("addUsuario");
         Usuario usuario = new Usuario();
@@ -74,5 +73,4 @@ public class UsuarioBusinessTest {
         usuario.setRol(rol);
         assertTrue(usuarioBusiness.addUsuario(usuario));
     }
-
 }

@@ -16,11 +16,11 @@ public class CategoriaBusiness {
     public Categoria getCategoriaByCode(Integer cat_codigo) throws Exception {
         return categoriadao.getCategoria(cat_codigo);
     }
-    
+
     public Categoria getCategoriaXNombre(String nombre) throws Exception {
         return categoriadao.getCategoriaXNombre(nombre);
     }
-    
+
     public List<Categoria> listCategoria() throws Exception {
         return categoriadao.listCategoria();
     }

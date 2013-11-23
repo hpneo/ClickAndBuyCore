@@ -12,15 +12,11 @@ import static org.junit.Assert.*;
  * @author Piero
  */
 public class ClienteBusinessTest {
-    
-    public ClienteBusinessTest() 
-    {
-        
+
+    public ClienteBusinessTest() {
     }
 
     @Test
-    public void testSomeMethod() 
-    {
-        
+    public void testSomeMethod() {
     }
 }

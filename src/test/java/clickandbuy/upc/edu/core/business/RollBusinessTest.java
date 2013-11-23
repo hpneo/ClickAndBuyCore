@@ -18,34 +18,27 @@ import org.junit.runners.MethodSorters;
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class RollBusinessTest {
-public RollBusinessTest(){
-}
-        @Test
+
+    public RollBusinessTest() {
+    }
+
+    @Test
     public void testAGetRollByUserName() throws Exception {
         System.out.println("getRoll");
-          int usu_roll =10;
-        RolBusiness rol  = new RolBusiness();
+        int usu_roll = 10;
+        RolBusiness rol = new RolBusiness();
 
         assertNotNull(rol.getRolNameByCode(usu_roll));
 
     }
-        
- @Test
+
+    @Test
     public void testBExisterol() throws Exception {
         System.out.println("existerol");
-       
-          Integer usu=5;
-        RolBusiness rol  = new RolBusiness();
-       // assertTrue(rol.getRolNameByCode(usu));
+
+        Integer usu = 5;
+        RolBusiness rol = new RolBusiness();
+        // assertTrue(rol.getRolNameByCode(usu));
 
     }
-
-   
-   
 }
-
-
-
-
-    
-    

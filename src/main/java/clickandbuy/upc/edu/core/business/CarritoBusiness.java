@@ -14,32 +14,23 @@ import java.util.List;
  * @author Garyfimo
  */
 public class CarritoBusiness {
-    
+
     private CarritoDAO carritodao = new CarritoImpl();
-    
-    public void addCarrito(Carrito carrito) throws Exception 
-    {
+
+    public void addCarrito(Carrito carrito) throws Exception {
         carritodao.addCarrito(carrito);
     }
-   
-    public Carrito getCarrito(Integer car_codigo) throws Exception
-    {
+
+    public Carrito getCarrito(Integer car_codigo) throws Exception {
         return carritodao.getCarrito(car_codigo);
     }
-    
-    public void deleteCarrito(Carrito carrito) throws Exception
-    {
+
+    public void deleteCarrito(Carrito carrito) throws Exception {
         carritodao.deleteCarrito(carrito);
     }
-    
-    public List<Carrito> listCarrito() throws Exception
-    {
+
+    public List<Carrito> listCarrito() throws Exception {
         return carritodao.listCarrito();
-                
+
     }
-    
-    
-    
-    
-    
 }
