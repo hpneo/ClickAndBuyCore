@@ -34,10 +34,10 @@ public class ProductoxpedidoId implements java.io.Serializable {
     }
 
     public boolean equals(Object other) {
-        if ((this == other)) {
+        if (this == other) {
             return true;
         }
-        if ((other == null)) {
+        if (other == null) {
             return false;
         }
         if (!(other instanceof ProductoxpedidoId)) {

@@ -7,7 +7,7 @@ public interface CategoriaDAO {
 
     public void addCategoria(Categoria categoria) throws Exception;
 
-    public Categoria getCategoria(Integer cat_codigo) throws Exception;
+    public Categoria getCategoria(Integer catCodigo) throws Exception;
 
     public Categoria getCategoriaXNombre(String nombre) throws Exception;
 
