@@ -20,4 +20,6 @@ public class Constantes {
     public static final int CARACTERES_CONTRASENA = 8;
     
     public static final String CODIGO="codigo";
+    
+    public static final String SELECT_FROM_PEDIDO_WHERE="select c from Pedido c where ped_tipo=:tipo";
 }

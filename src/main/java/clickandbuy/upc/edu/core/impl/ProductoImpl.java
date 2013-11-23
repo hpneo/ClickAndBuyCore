@@ -6,6 +6,7 @@ package clickandbuy.upc.edu.core.impl;
 
 import clickandbuy.upc.edu.core.dao.ProductoDAO;
 import clickandbuy.upc.edu.core.entity.Producto;
+import clickandbuy.upc.edu.core.util.Constantes;
 import clickandbuy.upc.edu.core.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -40,7 +41,7 @@ public class ProductoImpl implements ProductoDAO {
         session = HibernateUtil.getSessionFactory().openSession();
         final String s = "select c from Producto c where prod_codigo=:codigo";
         final Query query = session.createQuery(s);
-        query.setInteger("codigo", prod_codigo);
+        query.setInteger(Constantes.CODIGO, prod_codigo);
         return (Producto) query.uniqueResult();
     }
 
@@ -82,7 +83,7 @@ public class ProductoImpl implements ProductoDAO {
         session = HibernateUtil.getSessionFactory().openSession();
         final String s = "select c from Producto c where prod_codigocategoria=:codigo";
         final Query query = session.createQuery(s);
-        query.setInteger("codigo", prodCodigocategoria);
+        query.setInteger(Constantes.CODIGO, prodCodigocategoria);
         return query.list();
     }
 }

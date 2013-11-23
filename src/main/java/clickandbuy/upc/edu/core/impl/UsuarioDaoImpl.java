@@ -19,7 +19,7 @@ import org.hibernate.Session;
 public class UsuarioDaoImpl implements UsuarioDAO {
 
     private Session session;
-    private boolean bool;
+    
 
     @Override
     public void addUsuario(Usuario usuario) {
@@ -63,6 +63,7 @@ public class UsuarioDaoImpl implements UsuarioDAO {
 
     @Override
     public boolean deleteUsuario(Usuario usuario) {
+        boolean bool;
         session = HibernateUtil.getSessionFactory().openSession();
         bool = false;
         try {
