@@ -16,7 +16,7 @@ public interface ProductoDAO {
 
     public boolean addProducto(Producto producto) throws ProductoException;
 
-    public Producto getProducto(Integer prodCodigo) throws Exception;
+    public Producto getProducto(Integer prodCodigo) throws ProductoException;
 
     public void deleteProducto(Producto producto) throws ProductoException;
 
