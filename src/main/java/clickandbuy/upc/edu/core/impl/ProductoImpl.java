@@ -32,8 +32,12 @@ public class ProductoImpl implements ProductoDAO {
             session.beginTransaction().commit();
             bool = true;
         } catch (HibernateException ex) {
+<<<<<<< HEAD
             Logger.getLogger(ProductoImpl.class.getName()).log(Level.SEVERE, null, ex);
 
+=======
+            throw new HibernateException(ex);
+>>>>>>> 28c455c349210a566fe93b6a65a549d1a651e152
         }
         return bool;
     }
@@ -56,7 +60,11 @@ public class ProductoImpl implements ProductoDAO {
             session.delete(producto);
             session.beginTransaction().commit();
         } catch (HibernateException ex) {
+<<<<<<< HEAD
             Logger.getLogger(ProductoImpl.class.getName()).log(Level.SEVERE, null, ex);
+=======
+            throw new HibernateException(ex);
+>>>>>>> 28c455c349210a566fe93b6a65a549d1a651e152
         }
     }
 
@@ -68,7 +76,11 @@ public class ProductoImpl implements ProductoDAO {
             session.update(producto);
             session.beginTransaction().commit();
         } catch (HibernateException ex) {
+<<<<<<< HEAD
             Logger.getLogger(ProductoImpl.class.getName()).log(Level.SEVERE, null, ex);
+=======
+            throw new HibernateException(ex);
+>>>>>>> 28c455c349210a566fe93b6a65a549d1a651e152
         }
     }
 

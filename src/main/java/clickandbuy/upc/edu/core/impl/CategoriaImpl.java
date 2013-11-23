@@ -23,7 +23,11 @@ public class CategoriaImpl implements CategoriaDAO {
             session.merge(categoria);
             session.beginTransaction().commit();
         } catch (HibernateException ex) {
+<<<<<<< HEAD
             Logger.getLogger(CategoriaImpl.class.getName()).log(Level.SEVERE, null, ex);
+=======
+            throw new HibernateException(ex);
+>>>>>>> 28c455c349210a566fe93b6a65a549d1a651e152
         }
     }
 
