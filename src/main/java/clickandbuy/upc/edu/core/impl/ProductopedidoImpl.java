@@ -7,6 +7,7 @@ package clickandbuy.upc.edu.core.impl;
 import clickandbuy.upc.edu.core.dao.ProductoxpedidoDAO;
 import clickandbuy.upc.edu.core.entity.Productoxpedido;
 import clickandbuy.upc.edu.core.entity.ProductoxpedidoId;
+import clickandbuy.upc.edu.core.util.Constantes;
 import clickandbuy.upc.edu.core.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.Query;
@@ -56,7 +57,7 @@ public class ProductopedidoImpl implements ProductoxpedidoDAO {
         session = HibernateUtil.getSessionFactory().openSession();
         final String s = "select c from Productoxpedido c where proped_codigopedido=:codigo and proped_codigoproducto=:codigop";
         final Query query = session.createQuery(s);
-        query.setInteger("codigo", proped_codigopedido);
+        query.setInteger(Constantes.CODIGO, proped_codigopedido);
         query.setInteger("codigop", proped_codigoproducto);
         return (Productoxpedido) query.uniqueResult();
     }
