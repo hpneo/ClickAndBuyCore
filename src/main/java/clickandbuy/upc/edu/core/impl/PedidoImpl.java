@@ -28,7 +28,7 @@ public class PedidoImpl implements PedidoDAO {
             session.merge(pedido);
             session.beginTransaction().commit();
         } catch (HibernateException ex) {
-            ex.printStackTrace();
+            throw new HibernateException(ex);
         }
     }
 
@@ -47,7 +47,7 @@ public class PedidoImpl implements PedidoDAO {
             session.update(pedido);
             session.beginTransaction().commit();
         } catch (HibernateException ex) {
-            ex.printStackTrace();
+            throw new HibernateException(ex);
         }
     }
 
@@ -58,7 +58,7 @@ public class PedidoImpl implements PedidoDAO {
             session.delete(pedido);
             session.beginTransaction().commit();
         } catch (HibernateException ex) {
-            ex.printStackTrace();
+            throw new HibernateException(ex);
         }
     }
 

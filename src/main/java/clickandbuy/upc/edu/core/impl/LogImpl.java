@@ -19,7 +19,8 @@ import org.hibernate.Session;
 public class LogImpl implements LogDAO {
 
     private Session session;
-
+    
+    
     public void addLog(Log log) throws Exception {
         session = HibernateUtil.getSessionFactory().openSession();
 

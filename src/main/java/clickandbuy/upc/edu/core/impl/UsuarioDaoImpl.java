@@ -29,12 +29,12 @@ public class UsuarioDaoImpl implements UsuarioDAO {
             session.merge(usuario);
             session.beginTransaction().commit();
         } catch (HibernateException ex) {
-            ex.printStackTrace();
+            throw new HibernateException(ex);
         }
         HibernateUtil.shutdown();
     }
 
-    public Usuario findUsuariobyUsername(String usu_nickname) throws Exception {
+    public Usuario findUsuariobyUsername(String usu_nickname){
 
         session = HibernateUtil.getSessionFactory().openSession();
         //left join fetch u.rol
@@ -46,7 +46,7 @@ public class UsuarioDaoImpl implements UsuarioDAO {
         return (Usuario) query.uniqueResult();
     }
 
-    public Usuario findUsuariobyCode(Integer usu_codigo) throws Exception {
+    public Usuario findUsuariobyCode(Integer usu_codigo) {
 
         session = HibernateUtil.getSessionFactory().openSession();
 
@@ -58,7 +58,7 @@ public class UsuarioDaoImpl implements UsuarioDAO {
         return (Usuario) query.uniqueResult();
     }
 
-    public boolean deleteUsuario(Usuario usuario) throws Exception {
+    public boolean deleteUsuario(Usuario usuario){
 
         session = HibernateUtil.getSessionFactory().openSession();
         bool = false;
@@ -68,22 +68,23 @@ public class UsuarioDaoImpl implements UsuarioDAO {
             session.beginTransaction().commit();
             bool = true;
         } catch (HibernateException ex) {
-            ex.printStackTrace();
+            throw new HibernateException(ex);
         }
         HibernateUtil.shutdown();
         return bool;
     }
 
-    public void updateUsuario(Usuario usuario) throws Exception {
+    public void updateUsuario(Usuario usuario){
         session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
             session.update(usuario);
             session.beginTransaction().commit();
         } catch (HibernateException ex) {
-            ex.printStackTrace();
-            HibernateUtil.shutdown();
+            throw new HibernateException(ex);
         }
+            HibernateUtil.shutdown();
+        
     }
 
     public List<Usuario> findUsuariobyRol(Integer usu_codigorol) throws Exception {

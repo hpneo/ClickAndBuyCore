@@ -27,7 +27,7 @@ public class ClienteDaoImpl implements ClienteDAO {
             session.merge(cliente);
             session.beginTransaction().commit();
         } catch (HibernateException ex) {
-            ex.printStackTrace();
+            throw new HibernateException(ex);
         }
         HibernateUtil.shutdown();
     }
@@ -39,7 +39,7 @@ public class ClienteDaoImpl implements ClienteDAO {
             session.update(cliente);
             session.beginTransaction().commit();
         } catch (HibernateException ex) {
-            ex.printStackTrace();
+            throw new HibernateException(ex);
         }
         HibernateUtil.shutdown();
     }
@@ -51,7 +51,7 @@ public class ClienteDaoImpl implements ClienteDAO {
             session.delete(cliente);
             session.beginTransaction().commit();
         } catch (HibernateException ex) {
-            ex.printStackTrace();
+            throw new HibernateException(ex);
         }
         HibernateUtil.shutdown();
     }

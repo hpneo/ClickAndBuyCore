@@ -29,7 +29,7 @@ public class ProductoImpl implements ProductoDAO {
             session.beginTransaction().commit();
             bool = true;
         } catch (HibernateException ex) {
-            ex.printStackTrace();
+            throw new HibernateException(ex);
         }
         return bool;
     }
@@ -50,7 +50,7 @@ public class ProductoImpl implements ProductoDAO {
             session.delete(producto);
             session.beginTransaction().commit();
         } catch (HibernateException ex) {
-            ex.printStackTrace();
+            throw new HibernateException(ex);
         }
     }
 
@@ -61,7 +61,7 @@ public class ProductoImpl implements ProductoDAO {
             session.update(producto);
             session.beginTransaction().commit();
         } catch (HibernateException ex) {
-            ex.printStackTrace();
+            throw new HibernateException(ex);
         }
     }
 
