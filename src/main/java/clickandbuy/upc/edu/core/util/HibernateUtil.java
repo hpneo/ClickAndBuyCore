@@ -5,7 +5,6 @@
 package clickandbuy.upc.edu.core.util;
 
 
-import java.util.logging.Logger;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.SessionFactory;
 
