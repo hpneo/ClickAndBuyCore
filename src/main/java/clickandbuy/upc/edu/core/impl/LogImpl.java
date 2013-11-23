@@ -20,7 +20,8 @@ public class LogImpl implements LogDAO {
 
     private Session session;
 
-    public void addLog(Log log) throws Exception {
+    @Override
+    public void addLog(Log log) {
         session = HibernateUtil.getSessionFactory().openSession();
 
         session.beginTransaction();
@@ -29,7 +30,8 @@ public class LogImpl implements LogDAO {
 
     }
 
-    public List<Log> listLog(Cliente cliente) throws Exception {
+    @Override
+    public List<Log> listLog(Cliente cliente) {
         session = HibernateUtil.getSessionFactory().openSession();
 
         final String hql = "select l from Log l where log_codigocliente=:codigo";

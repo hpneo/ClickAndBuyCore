@@ -22,5 +22,5 @@ public interface ProductoxpedidoDAO {
 
     public Productoxpedido getProductoxpedido(ProductoxpedidoId id) throws Exception;
 
-    public List<Productoxpedido> listProductoxpedido(Integer proped_codigopedido) throws Exception;
+    public List<Productoxpedido> listProductoxpedido(Integer propedCodigopedido) throws Exception;
 }

@@ -8,6 +8,8 @@ import clickandbuy.upc.edu.core.dao.ProductoDAO;
 import clickandbuy.upc.edu.core.entity.Producto;
 import clickandbuy.upc.edu.core.util.HibernateUtil;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -20,7 +22,8 @@ public class ProductoImpl implements ProductoDAO {
 
     private Session session;
 
-    public boolean addProducto(Producto producto) throws Exception {
+    @Override
+    public boolean addProducto(Producto producto) {
         session = HibernateUtil.getSessionFactory().openSession();
         boolean bool = false;
         try {
@@ -29,12 +32,14 @@ public class ProductoImpl implements ProductoDAO {
             session.beginTransaction().commit();
             bool = true;
         } catch (HibernateException ex) {
-            ex.printStackTrace();
+            Logger.getLogger(ProductoImpl.class.getName()).log(Level.SEVERE, null, ex);
+
         }
         return bool;
     }
 
-    public Producto getProducto(Integer prod_codigo) throws Exception {
+    @Override
+    public Producto getProducto(Integer prod_codigo) {
         session = HibernateUtil.getSessionFactory().openSession();
         final String s = "select c from Producto c where prod_codigo=:codigo";
         final Query query = session.createQuery(s);
@@ -42,7 +47,8 @@ public class ProductoImpl implements ProductoDAO {
         return (Producto) query.uniqueResult();
     }
 
-    public void deleteProducto(Producto producto) throws Exception {
+    @Override
+    public void deleteProducto(Producto producto) {
 
         session = HibernateUtil.getSessionFactory().openSession();
         try {
@@ -50,33 +56,36 @@ public class ProductoImpl implements ProductoDAO {
             session.delete(producto);
             session.beginTransaction().commit();
         } catch (HibernateException ex) {
-            ex.printStackTrace();
+            Logger.getLogger(ProductoImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public void updateProducto(Producto producto) throws Exception {
+    @Override
+    public void updateProducto(Producto producto) {
         session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
             session.update(producto);
             session.beginTransaction().commit();
         } catch (HibernateException ex) {
-            ex.printStackTrace();
+            Logger.getLogger(ProductoImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public List<Producto> listProducto() throws Exception {
+    @Override
+    public List<Producto> listProducto() {
         session = HibernateUtil.getSessionFactory().openSession();
         final String s = "from Producto";
         final Query query = session.createQuery(s);
         return query.list();
     }
 
-    public List<Producto> listProductoxCategoria(Integer prod_codigocategoria) throws Exception {
+    @Override
+    public List<Producto> listProductoxCategoria(Integer prodCodigocategoria) {
         session = HibernateUtil.getSessionFactory().openSession();
         final String s = "select c from Producto c where prod_codigocategoria=:codigo";
         final Query query = session.createQuery(s);
-        query.setInteger("codigo", prod_codigocategoria);
+        query.setInteger("codigo", prodCodigocategoria);
         return query.list();
     }
 }

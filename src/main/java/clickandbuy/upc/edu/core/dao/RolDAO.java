@@ -19,9 +19,9 @@ public interface RolDAO {
 
     public void deleteRol(Rol rol) throws Exception;
 
-    public Rol findRolbyName(String rol_codigo) throws Exception;
+    public Rol findRolbyName(String rolCodigo) throws Exception;
 
-    public Rol findRolbyCode(Integer rol_codigo) throws Exception;
+    public Rol findRolbyCode(Integer rolCodigo) throws Exception;
 
     public List<Rol> findRol() throws Exception;
 }

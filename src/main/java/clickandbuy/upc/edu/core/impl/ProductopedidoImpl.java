@@ -20,7 +20,8 @@ public class ProductopedidoImpl implements ProductoxpedidoDAO {
 
     private Session session;
 
-    public int addProductoxpedido(Productoxpedido productoxpedido) throws Exception {
+    @Override
+    public int addProductoxpedido(Productoxpedido productoxpedido) {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         session.merge(productoxpedido);
@@ -29,7 +30,8 @@ public class ProductopedidoImpl implements ProductoxpedidoDAO {
         return productoxpedido.getId().hashCode();
     }
 
-    public void updateProductoxpedido(Productoxpedido productoxpedido) throws Exception {
+    @Override
+    public void updateProductoxpedido(Productoxpedido productoxpedido) {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         session.update(productoxpedido);
@@ -37,7 +39,8 @@ public class ProductopedidoImpl implements ProductoxpedidoDAO {
         session.close();
     }
 
-    public void deleteProductoxpedido(Productoxpedido productoxpedido) throws Exception {
+    @Override
+    public void deleteProductoxpedido(Productoxpedido productoxpedido) {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         session.delete(productoxpedido);
@@ -46,7 +49,8 @@ public class ProductopedidoImpl implements ProductoxpedidoDAO {
 
     }
 
-    public Productoxpedido getProductoxpedido(ProductoxpedidoId id) throws Exception {
+    @Override
+    public Productoxpedido getProductoxpedido(ProductoxpedidoId id) {
         int proped_codigopedido = id.getPropedCodigopedido();
         int proped_codigoproducto = id.getPropedCodigoproducto();
         session = HibernateUtil.getSessionFactory().openSession();
@@ -57,7 +61,8 @@ public class ProductopedidoImpl implements ProductoxpedidoDAO {
         return (Productoxpedido) query.uniqueResult();
     }
 
-    public List<Productoxpedido> listProductoxpedido(Integer proped_codigopedido) throws Exception {
+    @Override
+    public List<Productoxpedido> listProductoxpedido(Integer proped_codigopedido) {
         session = HibernateUtil.getSessionFactory().openSession();
         final String s = "select c from Productoxpedido c where proped_codigopedido=:codigo";
         final Query query = session.createQuery(s);
