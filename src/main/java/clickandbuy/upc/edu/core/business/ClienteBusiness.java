@@ -6,6 +6,7 @@ package clickandbuy.upc.edu.core.business;
 
 import clickandbuy.upc.edu.core.dao.ClienteDAO;
 import clickandbuy.upc.edu.core.entity.Cliente;
+import clickandbuy.upc.edu.core.exception.ClienteException;
 import clickandbuy.upc.edu.core.impl.ClienteDaoImpl;
 import java.util.List;
 
@@ -17,31 +18,31 @@ public class ClienteBusiness {
 
     private ClienteDAO clientedao = new ClienteDaoImpl();
 
-    public void addCliente(Cliente cliente) throws Exception {
+    public void addCliente(Cliente cliente) throws ClienteException {
         clientedao.addCliente(cliente);
     }
 
-    public Cliente getClienteByCode(Integer cliCodigo) throws Exception {
+    public Cliente getClienteByCode(Integer cliCodigo) throws ClienteException {
         return clientedao.findClienteByCode(cliCodigo);
     }
 
-    public Cliente findClienteByNombreusuario(String cliNombreusuario) throws Exception {
+    public Cliente findClienteByNombreusuario(String cliNombreusuario) throws ClienteException {
         return clientedao.findClienteByNombreusuario(cliNombreusuario);
     }
 
-    public void deleteCliente(Cliente cliente) throws Exception {
+    public void deleteCliente(Cliente cliente) throws ClienteException {
         clientedao.deleteCliente(cliente);
     }
 
-    public void updateCliente(Cliente cliente) throws Exception {
+    public void updateCliente(Cliente cliente) throws ClienteException {
         clientedao.updateCliente(cliente);
     }
 
-    public List<Cliente> listCliente() throws Exception {
+    public List<Cliente> listCliente() throws ClienteException {
         return clientedao.findCliente();
     }
 
-    public boolean existeCliente(String cliNombreusuario) throws Exception {
+    public boolean existeCliente(String cliNombreusuario) throws ClienteException {
         Boolean existe = false;
         Cliente cli = this.findClienteByNombreusuario(cliNombreusuario);
         if (cli != null) {
@@ -50,7 +51,7 @@ public class ClienteBusiness {
         return existe;
     }
 
-    public boolean autenticarCliente(String cliNombreusuario, String cliContrasenia) throws Exception {
+    public boolean autenticarCliente(String cliNombreusuario, String cliContrasenia) throws ClienteException {
         boolean resultado = false;
         Cliente cli = this.findClienteByNombreusuario(cliNombreusuario);
         if (cli != null && cli.getCliContrasenia().equals(cliContrasenia)) {
@@ -60,7 +61,7 @@ public class ClienteBusiness {
         return resultado;
     }
 
-    public Cliente iniciarSesion(String userNickname) throws Exception {
+    public Cliente iniciarSesion(String userNickname) throws ClienteException {
 
         return findClienteByNombreusuario(userNickname);
     }

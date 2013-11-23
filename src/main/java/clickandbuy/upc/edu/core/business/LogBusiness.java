@@ -7,6 +7,7 @@ package clickandbuy.upc.edu.core.business;
 import clickandbuy.upc.edu.core.dao.LogDAO;
 import clickandbuy.upc.edu.core.entity.Cliente;
 import clickandbuy.upc.edu.core.entity.Log;
+import clickandbuy.upc.edu.core.exception.LogException;
 import clickandbuy.upc.edu.core.impl.LogImpl;
 import java.util.List;
 
@@ -18,11 +19,11 @@ public class LogBusiness {
 
     private LogDAO logdao = new LogImpl();
 
-    public void addLog(Log log) throws Exception {
+    public void addLog(Log log) throws LogException {
         logdao.addLog(log);
     }
 
-    public List<Log> getLogByCliente(Cliente cliente) throws Exception {
+    public List<Log> getLogByCliente(Cliente cliente) throws LogException {
         return logdao.listLog(cliente);
     }
 }

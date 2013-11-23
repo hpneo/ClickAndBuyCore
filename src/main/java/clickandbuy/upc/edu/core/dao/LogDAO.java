@@ -6,6 +6,7 @@ package clickandbuy.upc.edu.core.dao;
 
 import clickandbuy.upc.edu.core.entity.Cliente;
 import clickandbuy.upc.edu.core.entity.Log;
+import clickandbuy.upc.edu.core.exception.LogException;
 import java.util.List;
 
 /**
@@ -14,7 +15,7 @@ import java.util.List;
  */
 public interface LogDAO {
 
-    public void addLog(Log log) throws Exception;
+    public void addLog(Log log) throws LogException;
 
-    public List<Log> listLog(Cliente cliente) throws Exception;
+    public List<Log> listLog(Cliente cliente) throws LogException;
 }
