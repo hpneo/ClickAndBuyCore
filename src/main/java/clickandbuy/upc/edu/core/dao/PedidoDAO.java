@@ -17,7 +17,7 @@ public interface PedidoDAO {
 
     public void addPedido(Pedido pedido) throws PedidoException;
 
-    public Pedido getPedido(Integer ped_codigo) throws PedidoException;
+    public Pedido getPedido(Integer pedCodigo) throws PedidoException;
 
     public void updatePedido(Pedido pedido) throws PedidoException;
 
@@ -25,11 +25,11 @@ public interface PedidoDAO {
 
     public List<Pedido> listPedido() throws PedidoException;
 
-    public List<Pedido> listPedidoxTipo(String ped_tipo) throws PedidoException;
+    public List<Pedido> listPedidoxTipo(String pedTipo) throws PedidoException;
 
-    public List<Pedido> listPedidoxCliente(Integer ped_codigocliente) throws PedidoException;
+    public List<Pedido> listPedidoxCliente(Integer pedCodigocliente) throws PedidoException;
 
-    public List<Pedido> listPedidoxClientexTipo(Integer ped_codigocliente, String ped_tipo) throws PedidoException;
+    public List<Pedido> listPedidoxClientexTipo(Integer pedCodigocliente, String pedTipo) throws PedidoException;
 
-    public List<Producto> listProductoxPedido(int ped_codigo) throws PedidoException;
+    public List<Producto> listProductoxPedido(int pedCodigo) throws PedidoException;
 }

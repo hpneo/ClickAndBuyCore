@@ -13,8 +13,8 @@ public class CategoriaBusiness {
         categoriadao.addCategoria(categoria);
     }
 
-    public Categoria getCategoriaByCode(Integer cat_codigo) throws Exception {
-        return categoriadao.getCategoria(cat_codigo);
+    public Categoria getCategoriaByCode(Integer catCodigo) throws Exception {
+        return categoriadao.getCategoria(catCodigo);
     }
 
     public Categoria getCategoriaXNombre(String nombre) throws Exception {

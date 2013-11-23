@@ -16,6 +16,7 @@ public interface UsuarioDAO {
 
     public void addUsuario(Usuario usuario) throws UsuarioException;
 
+
     public Usuario findUsuariobyUsername(String usuNombreusuario) throws UsuarioException;
 
     public Usuario findUsuariobyCode(Integer usuNombreusuario) throws UsuarioException;
@@ -24,7 +25,7 @@ public interface UsuarioDAO {
 
     public boolean deleteUsuario(Usuario usuario) throws UsuarioException;
 
-    public List<Usuario> findUsuariobyRol(Integer usuCodigoRol) throws UsuarioException;
+    public List<Usuario> findUsuariobyRol(Integer usuCodigorol) throws Exception;
 
     public List<Usuario> findUsuario() throws UsuarioException;
 }

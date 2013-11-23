@@ -12,7 +12,8 @@ public class CategoriaImpl implements CategoriaDAO {
 
     Session session;
 
-    public void addCategoria(Categoria categoria) throws Exception {
+    @Override
+    public void addCategoria(Categoria categoria) {
 
         session = HibernateUtil.getSessionFactory().openSession();
         try {
@@ -24,7 +25,8 @@ public class CategoriaImpl implements CategoriaDAO {
         }
     }
 
-    public Categoria getCategoria(Integer cat_codigo) throws Exception {
+    @Override
+    public Categoria getCategoria(Integer cat_codigo) {
         session = HibernateUtil.getSessionFactory().openSession();
         final String hql = "select c from Categoria c where cat_codigo=:codigo";
         final Query query = session.createQuery(hql);
@@ -32,14 +34,16 @@ public class CategoriaImpl implements CategoriaDAO {
         return (Categoria) query.uniqueResult();
     }
 
-    public Categoria getCategoriaXNombre(String nombre) throws Exception {
+    @Override
+    public Categoria getCategoriaXNombre(String nombre) {
         session = HibernateUtil.getSessionFactory().openSession();
         final String hql = "select n from Categoria n where cat_nombre=:nombre";
         final Query query = session.createQuery(hql);
         return (Categoria) query.uniqueResult();
     }
 
-    public List<Categoria> listCategoria() throws Exception {
+    @Override
+    public List<Categoria> listCategoria(){
         session = HibernateUtil.getSessionFactory().openSession();
         final String hql = "from Categoria";
         final Query query = session.createQuery(hql);

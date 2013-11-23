@@ -8,6 +8,8 @@ import clickandbuy.upc.edu.core.dao.UsuarioDAO;
 import clickandbuy.upc.edu.core.entity.Usuario;
 import clickandbuy.upc.edu.core.util.HibernateUtil;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -21,7 +23,8 @@ public class UsuarioDaoImpl implements UsuarioDAO {
     private Session session;
     private boolean bool;
 
-    public void addUsuario(Usuario usuario) throws Exception {
+    @Override
+    public void addUsuario(Usuario usuario) {
 
         session = HibernateUtil.getSessionFactory().openSession();
         try {
@@ -34,7 +37,8 @@ public class UsuarioDaoImpl implements UsuarioDAO {
         HibernateUtil.shutdown();
     }
 
-    public Usuario findUsuariobyUsername(String usu_nickname){
+    @Override
+    public Usuario findUsuariobyUsername(String usu_nickname) {
 
         session = HibernateUtil.getSessionFactory().openSession();
         //left join fetch u.rol
@@ -46,6 +50,7 @@ public class UsuarioDaoImpl implements UsuarioDAO {
         return (Usuario) query.uniqueResult();
     }
 
+    @Override
     public Usuario findUsuariobyCode(Integer usu_codigo) {
 
         session = HibernateUtil.getSessionFactory().openSession();
@@ -58,8 +63,8 @@ public class UsuarioDaoImpl implements UsuarioDAO {
         return (Usuario) query.uniqueResult();
     }
 
-    public boolean deleteUsuario(Usuario usuario){
-
+    @Override
+    public boolean deleteUsuario(Usuario usuario) {
         session = HibernateUtil.getSessionFactory().openSession();
         bool = false;
         try {
@@ -74,20 +79,23 @@ public class UsuarioDaoImpl implements UsuarioDAO {
         return bool;
     }
 
-    public void updateUsuario(Usuario usuario){
+    @Override
+    public void updateUsuario(Usuario usuario) {
         session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
             session.update(usuario);
             session.beginTransaction().commit();
         } catch (HibernateException ex) {
+            HibernateUtil.shutdown();
             throw new HibernateException(ex);
         }
-            HibernateUtil.shutdown();
-        
+        HibernateUtil.shutdown();
+
     }
 
-    public List<Usuario> findUsuariobyRol(Integer usu_codigorol) throws Exception {
+    @Override
+    public List<Usuario> findUsuariobyRol(Integer usu_codigorol) {
         session = HibernateUtil.getSessionFactory().openSession();
         final String s = "select c from Usuario c where usu_codigorol=:codigo";
         final Query query = session.createQuery(s);
@@ -96,7 +104,8 @@ public class UsuarioDaoImpl implements UsuarioDAO {
         return query.list();
     }
 
-    public List<Usuario> findUsuario() throws Exception {
+    @Override
+    public List<Usuario> findUsuario() {
         session = HibernateUtil.getSessionFactory().openSession();
         final String s = "from Usuario";
         final Query query = session.createQuery(s);

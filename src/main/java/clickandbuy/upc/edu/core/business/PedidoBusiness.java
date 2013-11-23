@@ -22,8 +22,8 @@ public class PedidoBusiness {
         pedidodao.addPedido(pedido);
     }
 
-    public Pedido getPedido(Integer ped_codigo) throws Exception {
-        return pedidodao.getPedido(ped_codigo);
+    public Pedido getPedido(Integer pedCodigo) throws Exception {
+        return pedidodao.getPedido(pedCodigo);
     }
 
     public void updatePedido(Pedido pedido) throws Exception {
@@ -38,19 +38,19 @@ public class PedidoBusiness {
         return pedidodao.listPedido();
     }
 
-    public List<Pedido> listPedidoxTipo(String ped_tipo) throws Exception {
-        return pedidodao.listPedidoxTipo(ped_tipo);
+    public List<Pedido> listPedidoxTipo(String pedTipo) throws Exception {
+        return pedidodao.listPedidoxTipo(pedTipo);
     }
 
-    public List<Pedido> listPedidoxCliente(Integer ped_codigocliente) throws Exception {
-        return pedidodao.listPedidoxCliente(ped_codigocliente);
+    public List<Pedido> listPedidoxCliente(Integer pedCodigocliente) throws Exception {
+        return pedidodao.listPedidoxCliente(pedCodigocliente);
     }
 
-    public List<Pedido> listPedidoxClientexTipo(Integer ped_codigocliente, String ped_tipo) throws Exception {
-        return pedidodao.listPedidoxClientexTipo(ped_codigocliente, ped_tipo);
+    public List<Pedido> listPedidoxClientexTipo(Integer pedCodigocliente, String pedTipo) throws Exception {
+        return pedidodao.listPedidoxClientexTipo(pedCodigocliente, pedTipo);
     }
 
-    public List<Producto> listProductoxPedido(int ped_codigo) throws Exception {
-        return pedidodao.listProductoxPedido(ped_codigo);
+    public List<Producto> listProductoxPedido(int pedCodigo) throws Exception {
+        return pedidodao.listProductoxPedido(pedCodigo);
     }
 }

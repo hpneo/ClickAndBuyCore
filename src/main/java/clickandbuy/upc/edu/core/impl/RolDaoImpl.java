@@ -19,35 +19,40 @@ public class RolDaoImpl implements RolDAO {
 
     private Session session;
 
-    public void addRol(Rol rol) throws Exception {
+    @Override
+    public void addRol(Rol rol) {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         session.merge(rol);
         session.beginTransaction().commit();
     }
 
-    public List<Rol> findRol() throws Exception {
+    @Override
+    public List<Rol> findRol() {
         session = HibernateUtil.getSessionFactory().openSession();
         final String hql = "from Rol";
         final Query query = session.createQuery(hql);
         return query.list();
     }
 
-    public void updateRol(Rol rol) throws Exception {
+    @Override
+    public void updateRol(Rol rol) {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         session.update(rol);
         session.beginTransaction().commit();
     }
 
-    public void deleteRol(Rol rol) throws Exception {
+    @Override
+    public void deleteRol(Rol rol) {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         session.delete(rol);
         session.beginTransaction().commit();
     }
 
-    public Rol findRolbyName(String rol_nombre) throws Exception {
+    @Override
+    public Rol findRolbyName(String rol_nombre) {
         session = HibernateUtil.getSessionFactory().openSession();
         final String hql = "select c from Rol c where rol_nombre=:rol_nombre";
         final Query query = session.createQuery(hql);
@@ -56,7 +61,8 @@ public class RolDaoImpl implements RolDAO {
         return (Rol) query.uniqueResult();
     }
 
-    public Rol findRolbyCode(Integer rol_codigo) throws Exception {
+    @Override
+    public Rol findRolbyCode(Integer rol_codigo) {
         session = HibernateUtil.getSessionFactory().openSession();
         final String hql = "select c from Rol c where rol_codigo=:rol_codigo";
         final Query query = session.createQuery(hql);

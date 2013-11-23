@@ -30,12 +30,12 @@ public class UsuarioBusiness {
         }
     }
 
-    public Usuario getUsuarioByUserName(String usu_nickname) throws Exception {
-        return usuarioDao.findUsuariobyUsername(usu_nickname);
+    public Usuario getUsuarioByUserName(String usuNickname) throws Exception {
+        return usuarioDao.findUsuariobyUsername(usuNickname);
     }
 
-    public Usuario getUsuarioByCode(Integer usu_codigo) throws Exception {
-        return usuarioDao.findUsuariobyCode(usu_codigo);
+    public Usuario getUsuarioByCode(Integer usuCodigo) throws Exception {
+        return usuarioDao.findUsuariobyCode(usuCodigo);
     }
 
     public boolean deleteUsuario(String userNickname) throws Exception {
@@ -50,8 +50,8 @@ public class UsuarioBusiness {
 
     }
 
-    public List<Usuario> listUsuarioxRol(Integer usu_codigorol) throws Exception {
-        return usuarioDao.findUsuariobyRol(usu_codigorol);
+    public List<Usuario> listUsuarioxRol(Integer usuCodigorol) throws Exception {
+        return usuarioDao.findUsuariobyRol(usuCodigorol);
     }
 
     public List<Usuario> listUsuario() throws Exception {

@@ -8,8 +8,6 @@ import clickandbuy.upc.edu.core.dao.RolDAO;
 import clickandbuy.upc.edu.core.entity.Rol;
 import clickandbuy.upc.edu.core.impl.RolDaoImpl;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -19,8 +17,8 @@ public class RolBusiness {
 
     private RolDAO roldao = new RolDaoImpl();
 
-    public Rol getRolNameByCode(Integer rol_codigo) throws Exception {
-        return roldao.findRolbyCode(rol_codigo);
+    public Rol getRolNameByCode(Integer rolCodigo) throws Exception {
+        return roldao.findRolbyCode(rolCodigo);
     }
 
     public List<Rol> listRoles() throws Exception {
@@ -35,8 +33,8 @@ public class RolBusiness {
         roldao.updateRol(rol);
     }
 
-    public Rol findRolbyNombreusuario(String rol_nombre) throws Exception {
-        return roldao.findRolbyName(rol_nombre);
+    public Rol findRolbyNombreusuario(String rolNombre) throws Exception {
+        return roldao.findRolbyName(rolNombre);
     }
 
     public void addRol(Rol rol) throws Exception {
@@ -45,9 +43,9 @@ public class RolBusiness {
         }
     }
 
-    public boolean existeRol(String rol_nombre) throws Exception {
+    public boolean existeRol(String rolNombre) throws Exception {
         boolean existe;
-        if (findRolbyNombreusuario(rol_nombre) == null) {
+        if (findRolbyNombreusuario(rolNombre) == null) {
             existe = false;
         } else {
             existe = true;

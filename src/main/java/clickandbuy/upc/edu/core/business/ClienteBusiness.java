@@ -21,12 +21,12 @@ public class ClienteBusiness {
         clientedao.addCliente(cliente);
     }
 
-    public Cliente getClienteByCode(Integer cli_codigo) throws Exception {
-        return clientedao.findClienteByCode(cli_codigo);
+    public Cliente getClienteByCode(Integer cliCodigo) throws Exception {
+        return clientedao.findClienteByCode(cliCodigo);
     }
 
-    public Cliente findClienteByNombreusuario(String cli_nombreusuario) throws Exception {
-        return clientedao.findClienteByNombreusuario(cli_nombreusuario);
+    public Cliente findClienteByNombreusuario(String cliNombreusuario) throws Exception {
+        return clientedao.findClienteByNombreusuario(cliNombreusuario);
     }
 
     public void deleteCliente(Cliente cliente) throws Exception {
@@ -41,26 +41,27 @@ public class ClienteBusiness {
         return clientedao.findCliente();
     }
 
-    public boolean existeCliente(String cli_nombreusuario) throws Exception {
+    public boolean existeCliente(String cliNombreusuario) throws Exception {
         Boolean existe = false;
-        Cliente cli = this.findClienteByNombreusuario(cli_nombreusuario);
+        Cliente cli = this.findClienteByNombreusuario(cliNombreusuario);
         if (cli != null) {
             existe = true;
         }
         return existe;
     }
 
-    public boolean autenticarCliente(String cli_nombreusuario, String cli_contrasenia) throws Exception {
+    public boolean autenticarCliente(String cliNombreusuario, String cliContrasenia) throws Exception {
         boolean resultado = false;
-        Cliente cli = this.findClienteByNombreusuario(cli_nombreusuario);
-        if (cli != null && cli.getCliContrasenia().equals(cli_contrasenia)) {
+        Cliente cli = this.findClienteByNombreusuario(cliNombreusuario);
+        if (cli != null && cli.getCliContrasenia().equals(cliContrasenia)) {
             resultado = true;
         }
+
         return resultado;
     }
 
     public Cliente iniciarSesion(String userNickname) throws Exception {
-        Cliente cli = findClienteByNombreusuario(userNickname);
-        return cli;
+
+        return findClienteByNombreusuario(userNickname);
     }
 }

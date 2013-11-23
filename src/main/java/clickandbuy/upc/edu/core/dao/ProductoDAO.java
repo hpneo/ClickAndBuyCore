@@ -16,7 +16,7 @@ public interface ProductoDAO {
 
     public boolean addProducto(Producto producto) throws ProductoException;
 
-    public Producto getProducto(Integer prod_codigo) throws ProductoException;
+    public Producto getProducto(Integer prodCodigo) throws Exception;
 
     public void deleteProducto(Producto producto) throws ProductoException;
 
@@ -24,5 +24,5 @@ public interface ProductoDAO {
 
     public List<Producto> listProducto() throws ProductoException;
 
-    public List<Producto> listProductoxCategoria(Integer prod_codigocategoria) throws ProductoException;
+    public List<Producto> listProductoxCategoria(Integer prodCodigoCategoria) throws ProductoException;
 }

@@ -34,7 +34,7 @@ public class ProductoxpedidoBusinees {
         return productoxpedidodao.getProductoxpedido(id);
     }
 
-    public List<Productoxpedido> listProductoxpedido(Integer proped_codigopedido) throws Exception {
-        return productoxpedidodao.listProductoxpedido(proped_codigopedido);
+    public List<Productoxpedido> listProductoxpedido(Integer propedCodigopedido) throws Exception {
+        return productoxpedidodao.listProductoxpedido(propedCodigopedido);
     }
 }

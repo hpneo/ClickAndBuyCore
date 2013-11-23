@@ -21,8 +21,8 @@ public class ProductoBusiness {
         return productodao.addProducto(producto);
     }
 
-    public Producto getProductoByCode(Integer prod_codigo) throws Exception {
-        return productodao.getProducto(prod_codigo);
+    public Producto getProductoByCode(Integer prodCodigo) throws Exception {
+        return productodao.getProducto(prodCodigo);
     }
 
     public void deleteProducto(Producto producto) throws Exception {
@@ -37,7 +37,7 @@ public class ProductoBusiness {
         return productodao.listProducto();
     }
 
-    public List<Producto> listProductoxCategoria(Integer prod_codigocategoria) throws Exception {
-        return productodao.listProductoxCategoria(prod_codigocategoria);
+    public List<Producto> listProductoxCategoria(Integer prodCodigocategoria) throws Exception {
+        return productodao.listProductoxCategoria(prodCodigocategoria);
     }
 }
