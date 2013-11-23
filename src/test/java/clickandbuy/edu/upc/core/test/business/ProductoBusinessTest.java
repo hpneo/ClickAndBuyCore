@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package clickandbuy.upc.edu.core.business;
+package clickandbuy.edu.upc.core.test.business;
 
 import clickandbuy.upc.edu.core.entity.Categoria;
 import clickandbuy.upc.edu.core.entity.Producto;

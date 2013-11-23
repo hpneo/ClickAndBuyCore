@@ -1,4 +1,4 @@
-package clickandbuy.edu.upc.core.clickandbuycore;
+package clickandbuy.edu.upc.core.test;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

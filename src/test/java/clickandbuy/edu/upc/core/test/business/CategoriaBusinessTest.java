@@ -1,5 +1,6 @@
-package clickandbuy.upc.edu.core.business;
+package clickandbuy.edu.upc.core.test.business;
 
+import clickandbuy.upc.edu.core.business.CategoriaBusiness;
 import clickandbuy.upc.edu.core.entity.Categoria;
 import junit.framework.TestCase;
 
