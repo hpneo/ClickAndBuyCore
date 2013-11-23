@@ -5,6 +5,7 @@
 package clickandbuy.upc.edu.core.dao;
 
 import clickandbuy.upc.edu.core.entity.Usuario;
+import clickandbuy.upc.edu.core.exception.UsuarioException;
 import java.util.List;
 
 /**
@@ -13,17 +14,17 @@ import java.util.List;
  */
 public interface UsuarioDAO {
 
-    public void addUsuario(Usuario usuario) throws Exception;
+    public void addUsuario(Usuario usuario) throws UsuarioException;
 
-    public Usuario findUsuariobyUsername(String usu_nombreusuario) throws Exception;
+    public Usuario findUsuariobyUsername(String usuNombreusuario) throws UsuarioException;
 
-    public Usuario findUsuariobyCode(Integer usu_nombreusuario) throws Exception;
+    public Usuario findUsuariobyCode(Integer usuNombreusuario) throws UsuarioException;
 
-    public void updateUsuario(Usuario usuario) throws Exception;
+    public void updateUsuario(Usuario usuario) throws UsuarioException;
 
-    public boolean deleteUsuario(Usuario usuario) throws Exception;
+    public boolean deleteUsuario(Usuario usuario) throws UsuarioException;
 
-    public List<Usuario> findUsuariobyRol(Integer usu_codigorol) throws Exception;
+    public List<Usuario> findUsuariobyRol(Integer usuCodigoRol) throws UsuarioException;
 
-    public List<Usuario> findUsuario() throws Exception;
+    public List<Usuario> findUsuario() throws UsuarioException;
 }

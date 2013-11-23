@@ -53,10 +53,8 @@ public class ClienteBusiness {
     public boolean autenticarCliente(String cli_nombreusuario, String cli_contrasenia) throws Exception {
         boolean resultado = false;
         Cliente cli = this.findClienteByNombreusuario(cli_nombreusuario);
-        if (cli != null) {
-            if (cli.getCliContrasenia().equals(cli_contrasenia)) {
-                resultado = true;
-            }
+        if (cli != null && cli.getCliContrasenia().equals(cli_contrasenia)) {
+            resultado = true;
         }
         return resultado;
     }

@@ -5,6 +5,7 @@
 package clickandbuy.upc.edu.core.dao;
 
 import clickandbuy.upc.edu.core.entity.Rol;
+import clickandbuy.upc.edu.core.exception.RolException;
 import java.util.List;
 
 /**
@@ -13,15 +14,15 @@ import java.util.List;
  */
 public interface RolDAO {
 
-    public void addRol(Rol rol) throws Exception;
+    public void addRol(Rol rol) throws RolException;
 
-    public void updateRol(Rol rol) throws Exception;
+    public void updateRol(Rol rol) throws RolException;
 
-    public void deleteRol(Rol rol) throws Exception;
+    public void deleteRol(Rol rol) throws RolException;
 
-    public Rol findRolbyName(String rol_codigo) throws Exception;
+    public Rol findRolbyName(String rolCodigo) throws RolException;
 
-    public Rol findRolbyCode(Integer rol_codigo) throws Exception;
+    public Rol findRolbyCode(Integer rolCodigo) throws RolException;
 
-    public List<Rol> findRol() throws Exception;
+    public List<Rol> findRol() throws RolException;
 }
