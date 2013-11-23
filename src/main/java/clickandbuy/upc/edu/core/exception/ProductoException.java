@@ -9,8 +9,8 @@ package clickandbuy.upc.edu.core.exception;
  * @author Piero
  */
 public class ProductoException extends ClickandbuyException {
+
     public ProductoException(String s) {
         super(s);
     }
-    
 }

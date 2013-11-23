@@ -14,6 +14,3 @@ public class ClickandbuyException extends Exception {
         super(s);
     }
 }
-
-
-
