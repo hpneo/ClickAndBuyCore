@@ -62,5 +62,5 @@ public class Constantes {
     private static final int CARACTERESCLIENTE = 15;
     private static final int CARACTERESCONTRASENA = 8;
     private static final String CODIGO = "codigo";
-    private static final String SELECTFROMPEDIDOWHERE = "select c from Pedido c where pedtipo=:tipo";
+    private static final String SELECTFROMPEDIDOWHERE = "select c from Pedido c where ped_tipo=:tipo";
 }
