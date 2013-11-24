@@ -6,6 +6,7 @@ package clickandbuy.upc.edu.core.business;
 
 import clickandbuy.upc.edu.core.dao.UsuarioDAO;
 import clickandbuy.upc.edu.core.entity.Usuario;
+import clickandbuy.upc.edu.core.exception.UsuarioException;
 import clickandbuy.upc.edu.core.impl.UsuarioDaoImpl;
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class UsuarioBusiness {
     private RolBusiness rolBusiness;
     private Usuario usuario;
 
-    public boolean addUsuario(Usuario usuario) throws Exception {
+    public boolean addUsuario(Usuario usuario) throws UsuarioException {
         if (!existeUsuario(usuario.getUsuNombreusuario())) {
             usuarioDao.addUsuario(usuario);
             System.out.println("Crea usuario");
@@ -30,35 +31,35 @@ public class UsuarioBusiness {
         }
     }
 
-    public Usuario getUsuarioByUserName(String usuNickname) throws Exception {
+    public Usuario getUsuarioByUserName(String usuNickname) throws UsuarioException {
         return usuarioDao.findUsuariobyUsername(usuNickname);
     }
 
-    public Usuario getUsuarioByCode(Integer usuCodigo) throws Exception {
+    public Usuario getUsuarioByCode(Integer usuCodigo) throws UsuarioException {
         return usuarioDao.findUsuariobyCode(usuCodigo);
     }
 
-    public boolean deleteUsuario(String userNickname) throws Exception {
+    public boolean deleteUsuario(String userNickname) throws UsuarioException {
         Usuario usuarioBorrar = usuarioDao.findUsuariobyUsername(userNickname);
 
         return usuarioDao.deleteUsuario(usuarioBorrar);
 
     }
 
-    public void updateUsuario(Usuario usu) throws Exception {
+    public void updateUsuario(Usuario usu) throws UsuarioException {
         usuarioDao.updateUsuario(usu);
 
     }
 
-    public List<Usuario> listUsuarioxRol(Integer usuCodigorol) throws Exception {
+    public List<Usuario> listUsuarioxRol(Integer usuCodigorol) throws UsuarioException {
         return usuarioDao.findUsuariobyRol(usuCodigorol);
     }
 
-    public List<Usuario> listUsuario() throws Exception {
+    public List<Usuario> listUsuario() throws UsuarioException {
         return usuarioDao.findUsuario();
     }
 
-    public boolean existeUsuario(String userNickname) throws Exception {
+    public boolean existeUsuario(String userNickname) throws UsuarioException {
         Boolean existe = false;
 
         usuario = usuarioDao.findUsuariobyUsername(userNickname);
@@ -69,7 +70,7 @@ public class UsuarioBusiness {
         return existe;
     }
 
-    public boolean autenticarUsuario(String userNickname, String userPassword) throws Exception {
+    public boolean autenticarUsuario(String userNickname, String userPassword) throws UsuarioException {
         boolean resultado = false;
         usuario = usuarioDao.findUsuariobyUsername(userNickname);
 
@@ -82,7 +83,7 @@ public class UsuarioBusiness {
         return resultado;
     }
 
-    public Usuario iniciarSesion(String userNickname) throws Exception {
+    public Usuario iniciarSesion(String userNickname) throws UsuarioException {
         usuario = usuarioDao.findUsuariobyUsername(userNickname);
         return usuario;
     }
