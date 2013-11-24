@@ -17,33 +17,33 @@ public class RolBusiness {
 
     private RolDAO roldao = new RolDaoImpl();
 
-    public Rol getRolNameByCode(Integer rolCodigo) throws Exception {
+    public Rol getRolNameByCode(Integer rolCodigo) throws RolException {
         return roldao.findRolbyCode(rolCodigo);
     }
 
-    public List<Rol> listRoles() throws Exception {
+    public List<Rol> listRoles() throws RolException {
         return roldao.findRol();
     }
 
-    public void updateRol(Rol rol) throws Exception {
+    public void updateRol(Rol rol) throws RolException {
         roldao.updateRol(rol);
     }
 
-    public void deleteRol(Rol rol) throws Exception {
+    public void deleteRol(Rol rol) throws RolException {
         roldao.updateRol(rol);
     }
 
-    public Rol findRolbyNombreusuario(String rolNombre) throws Exception {
+    public Rol findRolbyNombreusuario(String rolNombre) throws RolException {
         return roldao.findRolbyName(rolNombre);
     }
 
-    public void addRol(Rol rol) throws Exception {
+    public void addRol(Rol rol) throws RolException {
         if (!existeRol(rol.getRolNombre())) {
             roldao.addRol(rol);
         }
     }
 
-    public boolean existeRol(String rolNombre) throws Exception {
+    public boolean existeRol(String rolNombre) throws RolException {
         boolean existe;
         if (findRolbyNombreusuario(rolNombre) == null) {
             existe = false;

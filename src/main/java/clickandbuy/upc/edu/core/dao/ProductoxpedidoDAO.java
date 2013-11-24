@@ -6,7 +6,7 @@ package clickandbuy.upc.edu.core.dao;
 
 import clickandbuy.upc.edu.core.entity.Productoxpedido;
 import clickandbuy.upc.edu.core.entity.ProductoxpedidoId;
-import clickandbuy.upc.edu.core.exception.ProductoException;
+import clickandbuy.upc.edu.core.exception.ProductoxpedidoException;
 import java.util.List;
 
 /**
@@ -15,13 +15,13 @@ import java.util.List;
  */
 public interface ProductoxpedidoDAO {
 
-    public int addProductoxpedido(Productoxpedido productoxpedido) throws ProductoException;
+    public int addProductoxpedido(Productoxpedido productoxpedido) throws ProductoxpedidoException;
 
-    public void updateProductoxpedido(Productoxpedido productoxpedido) throws ProductoException;
+    public void updateProductoxpedido(Productoxpedido productoxpedido) throws ProductoxpedidoException;
 
-    public void deleteProductoxpedido(Productoxpedido productoxpedido) throws ProductoException;
+    public void deleteProductoxpedido(Productoxpedido productoxpedido) throws ProductoxpedidoException;
 
-    public Productoxpedido getProductoxpedido(ProductoxpedidoId id) throws ProductoException;
+    public Productoxpedido getProductoxpedido(ProductoxpedidoId id) throws ProductoxpedidoException;
 
-    public List<Productoxpedido> listProductoxpedido(Integer propedCodigopedido) throws ProductoException;
+    public List<Productoxpedido> listProductoxpedido(Integer propedCodigopedido) throws ProductoxpedidoException;
 }
