@@ -37,11 +37,11 @@ public class ProductoImpl implements ProductoDAO {
     }
 
     @Override
-    public Producto getProducto(Integer prod_codigo) {
+    public Producto getProducto(Integer prodCodigo) {
         session = HibernateUtil.getSessionFactory().openSession();
         final String s = "select c from Producto c where prod_codigo=:codigo";
         final Query query = session.createQuery(s);
-        query.setInteger(Constantes.CODIGO, prod_codigo);
+        query.setInteger(Constantes.getCODIGO(), prodCodigo);
         return (Producto) query.uniqueResult();
     }
 
@@ -83,7 +83,7 @@ public class ProductoImpl implements ProductoDAO {
         session = HibernateUtil.getSessionFactory().openSession();
         final String s = "select c from Producto c where prod_codigocategoria=:codigo";
         final Query query = session.createQuery(s);
-        query.setInteger(Constantes.CODIGO, prodCodigocategoria);
+        query.setInteger(Constantes.getCODIGO(), prodCodigocategoria);
         return query.list();
     }
 }

@@ -60,21 +60,21 @@ public class ClienteDaoImpl implements ClienteDAO {
     }
 
     @Override
-    public Cliente findClienteByCode(Integer cli_codigo) {
+    public Cliente findClienteByCode(Integer cliCodigo) {
         session = HibernateUtil.getSessionFactory().openSession();
         final String s = "select c from Cliente c where cli_codigo=:codigo";
         final Query query = session.createQuery(s);
-        query.setInteger("codigo", cli_codigo);
+        query.setInteger("codigo", cliCodigo);
         HibernateUtil.shutdown();
         return (Cliente) query.uniqueResult();
     }
 
     @Override
-    public Cliente findClienteByNombreusuario(String cli_nombreusuario) {
+    public Cliente findClienteByNombreusuario(String cliNombreusuario) {
         session = HibernateUtil.getSessionFactory().openSession();
         final String s = "select c from Cliente c where cli_nombreusuario=:cli_nombreusuario";
         final Query query = session.createQuery(s);
-        query.setString("cli_nombreusuario", cli_nombreusuario);
+        query.setString("cli_nombreusuario", cliNombreusuario);
         HibernateUtil.shutdown();
         return (Cliente) query.uniqueResult();
     }

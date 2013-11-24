@@ -19,7 +19,6 @@ public class UsuarioBusiness {
 
     Logger log = Logger.getLogger("UsuarioBusiness");
     private UsuarioDAO usuarioDao = new UsuarioDaoImpl();
-    private RolBusiness rolBusiness;
     private Usuario usuario;
 
     public boolean addUsuario(Usuario usuario) throws UsuarioException {
@@ -82,11 +81,11 @@ public class UsuarioBusiness {
         boolean resultado = false;
         usuario = usuarioDao.findUsuariobyUsername(userNickname);
 
-        if (usuario != null) {
-            if (usuario.getUsuContrasenia().equals(userPassword)) {
-                log.info("Contraseña correcta");
-                resultado = true;
-            }
+        if (usuario != null
+                && usuario.getUsuContrasenia().equals(userPassword)) {
+            log.info("Contraseña correcta");
+            resultado = true;
+
         }
 
         return resultado;

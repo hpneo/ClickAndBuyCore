@@ -26,11 +26,11 @@ public class CategoriaImpl implements CategoriaDAO {
     }
 
     @Override
-    public Categoria getCategoria(Integer cat_codigo) {
+    public Categoria getCategoria(Integer catCodigo) {
         session = HibernateUtil.getSessionFactory().openSession();
         final String hql = "select c from Categoria c where cat_codigo=:codigo";
         final Query query = session.createQuery(hql);
-        query.setInteger("codigo", cat_codigo);
+        query.setInteger("codigo", catCodigo);
         return (Categoria) query.uniqueResult();
     }
 

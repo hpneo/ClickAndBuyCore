@@ -35,11 +35,11 @@ public class PedidoImpl implements PedidoDAO {
     }
 
     @Override
-    public Pedido getPedido(Integer ped_codigo) {
+    public Pedido getPedido(Integer pedCodigo) {
         session = HibernateUtil.getSessionFactory().openSession();
-        final String s = Constantes.SELECT_FROM_PEDIDO_WHERE;
+        final String s = Constantes.getSELECT_FROM_PEDIDO_WHERE();
         final Query query = session.createQuery(s);
-        query.setInteger(Constantes.CODIGO, ped_codigo);
+        query.setInteger(Constantes.getCODIGO(), pedCodigo);
         return (Pedido) query.uniqueResult();
     }
 
@@ -78,33 +78,33 @@ public class PedidoImpl implements PedidoDAO {
     @Override
     public List<Pedido> listPedidoxTipo(String ped_tipo) {
         session = HibernateUtil.getSessionFactory().openSession();
-        final String s = Constantes.SELECT_FROM_PEDIDO_WHERE;
+        final String s = Constantes.getSELECT_FROM_PEDIDO_WHERE();
         final Query query = session.createQuery(s);
         query.setString("tipo", ped_tipo);
         return query.list();
     }
 
     @Override
-    public List<Pedido> listPedidoxCliente(Integer ped_codigocliente) {
+    public List<Pedido> listPedidoxCliente(Integer pedCodigocliente) {
         session = HibernateUtil.getSessionFactory().openSession();
         final String s = "select c from Pedido c where ped_codigocliente=:codigo";
         final Query query = session.createQuery(s);
-        query.setInteger(Constantes.CODIGO, ped_codigocliente);
+        query.setInteger(Constantes.getCODIGO(), pedCodigocliente);
         return query.list();
     }
 
     @Override
-    public List<Pedido> listPedidoxClientexTipo(Integer ped_codigocliente, String ped_tipo) {
+    public List<Pedido> listPedidoxClientexTipo(Integer pedCodigocliente, String pedTipo) {
         session = HibernateUtil.getSessionFactory().openSession();
         final String s = "select c from Pedido c where ped_codigocliente=:codigo and ped_tipo=:tipo";
         final Query query = session.createQuery(s);
-        query.setInteger(Constantes.CODIGO, ped_codigocliente);
-        query.setString("tipo", ped_tipo);
+        query.setInteger(Constantes.getCODIGO(), pedCodigocliente);
+        query.setString("tipo", pedTipo);
         return query.list();
     }
 
     @Override
-    public List<Producto> listProductoxPedido(int ped_codigo) {
+    public List<Producto> listProductoxPedido(int pedCodigo) {
         session = HibernateUtil.getSessionFactory().openSession();
         final String s = "select c from Pedido c where ped_tipo=:tipo";
         final Query query = session.createQuery(s);

@@ -35,13 +35,13 @@ public class UsuarioDaoImpl implements UsuarioDAO {
     }
 
     @Override
-    public Usuario findUsuariobyUsername(String usu_nickname) {
+    public Usuario findUsuariobyUsername(String usuNickname) {
 
         session = HibernateUtil.getSessionFactory().openSession();
         //left join fetch u.rol
         final String hql = "select u from Usuario u where usu_nombreusuario=:usu_nickname";
         final Query query = session.createQuery(hql);
-        query.setString("usu_nickname", usu_nickname);
+        query.setString("usu_nickname", usuNickname);
         HibernateUtil.shutdown();
 
         return (Usuario) query.uniqueResult();

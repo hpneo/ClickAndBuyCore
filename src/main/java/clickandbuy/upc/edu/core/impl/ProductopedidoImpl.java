@@ -52,22 +52,22 @@ public class ProductopedidoImpl implements ProductoxpedidoDAO {
 
     @Override
     public Productoxpedido getProductoxpedido(ProductoxpedidoId id) {
-        int proped_codigopedido = id.getPropedCodigopedido();
-        int proped_codigoproducto = id.getPropedCodigoproducto();
+        int propedCodigopedido = id.getPropedCodigopedido();
+        int propedCodigoproducto = id.getPropedCodigoproducto();
         session = HibernateUtil.getSessionFactory().openSession();
         final String s = "select c from Productoxpedido c where proped_codigopedido=:codigo and proped_codigoproducto=:codigop";
         final Query query = session.createQuery(s);
-        query.setInteger(Constantes.CODIGO, proped_codigopedido);
-        query.setInteger("codigop", proped_codigoproducto);
+        query.setInteger(Constantes.getCODIGO(), propedCodigopedido);
+        query.setInteger("codigop", propedCodigoproducto);
         return (Productoxpedido) query.uniqueResult();
     }
 
     @Override
-    public List<Productoxpedido> listProductoxpedido(Integer proped_codigopedido) {
+    public List<Productoxpedido> listProductoxpedido(Integer propedCodigopedido) {
         session = HibernateUtil.getSessionFactory().openSession();
         final String s = "select c from Productoxpedido c where proped_codigopedido=:codigo";
         final Query query = session.createQuery(s);
-        query.setInteger("codigo", proped_codigopedido);
+        query.setInteger("codigo", propedCodigopedido);
         session.close();
         return query.list();
     }

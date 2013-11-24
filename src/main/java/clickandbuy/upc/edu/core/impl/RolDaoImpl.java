@@ -52,21 +52,21 @@ public class RolDaoImpl implements RolDAO {
     }
 
     @Override
-    public Rol findRolbyName(String rol_nombre) {
+    public Rol findRolbyName(String rolNombre) {
         session = HibernateUtil.getSessionFactory().openSession();
         final String hql = "select c from Rol c where rol_nombre=:rol_nombre";
         final Query query = session.createQuery(hql);
-        query.setString("rol_nombre", rol_nombre);
+        query.setString("rol_nombre", rolNombre);
         HibernateUtil.shutdown();
         return (Rol) query.uniqueResult();
     }
 
     @Override
-    public Rol findRolbyCode(Integer rol_codigo) {
+    public Rol findRolbyCode(Integer rolCodigo) {
         session = HibernateUtil.getSessionFactory().openSession();
         final String hql = "select c from Rol c where rol_codigo=:rol_codigo";
         final Query query = session.createQuery(hql);
-        query.setInteger("rol_codigo", rol_codigo);
+        query.setInteger("rol_codigo", rolCodigo);
         HibernateUtil.shutdown();
         return (Rol) query.uniqueResult();
     }
