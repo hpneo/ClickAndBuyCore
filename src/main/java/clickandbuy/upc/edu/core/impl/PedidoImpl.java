@@ -37,7 +37,7 @@ public class PedidoImpl implements PedidoDAO {
     @Override
     public Pedido getPedido(Integer pedCodigo) {
         session = HibernateUtil.getSessionFactory().openSession();
-        final String s = Constantes.getSELECTFROMPEDIDOWHERE();
+        final String s = "select c from Pedido c where ped_codigo=:codigo";
         final Query query = session.createQuery(s);
         query.setInteger(Constantes.getCODIGO(), pedCodigo);
         return (Pedido) query.uniqueResult();
