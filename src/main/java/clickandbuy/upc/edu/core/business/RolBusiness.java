@@ -6,6 +6,7 @@ package clickandbuy.upc.edu.core.business;
 
 import clickandbuy.upc.edu.core.dao.RolDAO;
 import clickandbuy.upc.edu.core.entity.Rol;
+import clickandbuy.upc.edu.core.exception.RolException;
 import clickandbuy.upc.edu.core.impl.RolDaoImpl;
 import java.util.List;
 
