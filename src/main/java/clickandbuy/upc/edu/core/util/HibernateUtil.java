@@ -4,6 +4,7 @@
  */
 package clickandbuy.upc.edu.core.util;
 
+import java.util.logging.Level;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.SessionFactory;
 
@@ -15,14 +16,13 @@ import org.hibernate.SessionFactory;
  */
 public class HibernateUtil {
 
-    ;
     private static SessionFactory sessionFactory;
 
     static {
         try {
             sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
         } catch (ExceptionInInitializerError ex) {
-            throw new RuntimeException(HibernateUtil.class.getName(), ex);
+            throw new ExceptionInInitializerError(ex);
         }
     }
 
@@ -30,7 +30,7 @@ public class HibernateUtil {
         return sessionFactory;
     }
 
-    public HibernateUtil() {
+    private HibernateUtil() {
     }
 
     public static void shutdown() {
