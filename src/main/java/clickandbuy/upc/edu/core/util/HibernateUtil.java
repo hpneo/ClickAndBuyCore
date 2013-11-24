@@ -4,7 +4,6 @@
  */
 package clickandbuy.upc.edu.core.util;
 
-import java.util.logging.Level;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.SessionFactory;
 
