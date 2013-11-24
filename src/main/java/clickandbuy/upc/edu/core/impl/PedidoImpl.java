@@ -37,7 +37,7 @@ public class PedidoImpl implements PedidoDAO {
     @Override
     public Pedido getPedido(Integer pedCodigo) {
         session = HibernateUtil.getSessionFactory().openSession();
-        final String s = Constantes.getSELECT_FROM_PEDIDO_WHERE();
+        final String s = Constantes.getSELECTFROMPEDIDOWHERE();
         final Query query = session.createQuery(s);
         query.setInteger(Constantes.getCODIGO(), pedCodigo);
         return (Pedido) query.uniqueResult();
@@ -76,11 +76,11 @@ public class PedidoImpl implements PedidoDAO {
     }
 
     @Override
-    public List<Pedido> listPedidoxTipo(String ped_tipo) {
+    public List<Pedido> listPedidoxTipo(String pedTipo) {
         session = HibernateUtil.getSessionFactory().openSession();
-        final String s = Constantes.getSELECT_FROM_PEDIDO_WHERE();
+        final String s = Constantes.getSELECTFROMPEDIDOWHERE();
         final Query query = session.createQuery(s);
-        query.setString("tipo", ped_tipo);
+        query.setString("tipo", pedTipo);
         return query.list();
     }
 

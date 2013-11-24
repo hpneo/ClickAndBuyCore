@@ -48,13 +48,13 @@ public class UsuarioDaoImpl implements UsuarioDAO {
     }
 
     @Override
-    public Usuario findUsuariobyCode(Integer usu_codigo) {
+    public Usuario findUsuariobyCode(Integer usuCodigo) {
 
         session = HibernateUtil.getSessionFactory().openSession();
 
         final String hql = "select u from Usuario u left join fetch u.rol where usu_codigo=:usu_codigo";
         final Query query = session.createQuery(hql);
-        query.setInteger("usu_codigo", usu_codigo);
+        query.setInteger("usu_codigo", usuCodigo);
         HibernateUtil.shutdown();
 
         return (Usuario) query.uniqueResult();
@@ -92,11 +92,11 @@ public class UsuarioDaoImpl implements UsuarioDAO {
     }
 
     @Override
-    public List<Usuario> findUsuariobyRol(Integer usu_codigorol) {
+    public List<Usuario> findUsuariobyRol(Integer usuCodigorol) {
         session = HibernateUtil.getSessionFactory().openSession();
         final String s = "select c from Usuario c where usu_codigorol=:codigo";
         final Query query = session.createQuery(s);
-        query.setInteger("codigo", usu_codigorol);
+        query.setInteger("codigo", usuCodigorol);
         HibernateUtil.shutdown();
         return query.list();
     }
