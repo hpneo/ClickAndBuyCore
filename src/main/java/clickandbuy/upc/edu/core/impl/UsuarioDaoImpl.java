@@ -19,7 +19,6 @@ import org.hibernate.Session;
 public class UsuarioDaoImpl implements UsuarioDAO {
 
     private Session session;
-    
 
     @Override
     public void addUsuario(Usuario usuario) {

@@ -18,8 +18,6 @@ public class Constantes {
     public static final int CARACTERES_NOMBREUSUARIO = 15;
     public static final int CARACTERES_CLIENTE = 15;
     public static final int CARACTERES_CONTRASENA = 8;
-    
-    public static final String CODIGO="codigo";
-    
-    public static final String SELECT_FROM_PEDIDO_WHERE="select c from Pedido c where ped_tipo=:tipo";
+    public static final String CODIGO = "codigo";
+    public static final String SELECT_FROM_PEDIDO_WHERE = "select c from Pedido c where ped_tipo=:tipo";
 }

@@ -31,7 +31,7 @@ public class PedidoImpl implements PedidoDAO {
             session.beginTransaction().commit();
         } catch (HibernateException ex) {
             throw new HibernateException(ex);
-    }
+        }
     }
 
     @Override

@@ -4,7 +4,6 @@
  */
 package clickandbuy.upc.edu.core.util;
 
-
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.SessionFactory;
 
@@ -21,8 +20,8 @@ public class HibernateUtil {
     static {
         try {
             sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
-        } catch (ExceptionInInitializerError ex) { 
-            throw new RuntimeException(HibernateUtil.class.getName(),ex);
+        } catch (ExceptionInInitializerError ex) {
+            throw new RuntimeException(HibernateUtil.class.getName(), ex);
         }
     }
 

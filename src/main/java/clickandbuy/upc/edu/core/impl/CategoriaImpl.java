@@ -43,7 +43,7 @@ public class CategoriaImpl implements CategoriaDAO {
     }
 
     @Override
-    public List<Categoria> listCategoria(){
+    public List<Categoria> listCategoria() {
         session = HibernateUtil.getSessionFactory().openSession();
         final String hql = "from Categoria";
         final Query query = session.createQuery(hql);

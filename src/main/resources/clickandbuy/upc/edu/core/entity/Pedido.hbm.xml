@@ -17,11 +17,11 @@
         <property name="pedTipo" type="string">
             <column name="ped_tipo" length="50" not-null="true" />
         </property>
-	<bag name="productoxpedidos" cascade="all">
+        <bag name="productoxpedidos" cascade="all">
             <key>
-	      <column name="proped_codigopedido" not-null="true" />
-	    </key>
+                <column name="proped_codigopedido" not-null="true" />
+            </key>
             <one-to-many class="clickandbuy.upc.edu.core.entity.Productoxpedido" />
-	</bag>
+        </bag>
     </class>
 </hibernate-mapping>

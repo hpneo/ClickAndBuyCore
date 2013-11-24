@@ -16,7 +16,6 @@ public interface UsuarioDAO {
 
     public void addUsuario(Usuario usuario) throws UsuarioException;
 
-
     public Usuario findUsuariobyUsername(String usuNombreusuario) throws UsuarioException;
 
     public Usuario findUsuariobyCode(Integer usuNombreusuario) throws UsuarioException;
