@@ -39,6 +39,7 @@ public class CategoriaImpl implements CategoriaDAO {
         session = HibernateUtil.getSessionFactory().openSession();
         final String hql = "select n from Categoria n where cat_nombre=:nombre";
         final Query query = session.createQuery(hql);
+        query.setString("nombre", nombre);
         return (Categoria) query.uniqueResult();
     }
 
