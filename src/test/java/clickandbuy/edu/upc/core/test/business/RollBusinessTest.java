@@ -7,6 +7,7 @@ package clickandbuy.edu.upc.core.test.business;
 import clickandbuy.upc.edu.core.business.RolBusiness;
 import clickandbuy.upc.edu.core.entity.Rol;
 import clickandbuy.upc.edu.core.entity.Usuario;
+import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import org.junit.FixMethodOrder;
@@ -23,23 +24,13 @@ public class RollBusinessTest {
     public RollBusinessTest() {
     }
 
-    @Test
-    public void testAGetRollByUserName() throws Exception {
-        System.out.println("getRoll");
-        int usu_roll = 10;
-        RolBusiness rol = new RolBusiness();
-
-        assertNotNull(rol.getRolNameByCode(usu_roll));
-
-    }
-
-    @Test
+   
     public void testBExisterol() throws Exception {
         System.out.println("existerol");
 
-        Integer usu = 5;
+        Integer usu = 2;
         RolBusiness rol = new RolBusiness();
-        assertNotNull(rol.getRolNameByCode(usu));
+        assertEquals(rol.getRolNameByCode(usu),"PROGRAMADOR");
 
     }
 }
