@@ -39,7 +39,7 @@ public class RollBusinessTest {
 
         Integer usu = 5;
         RolBusiness rol = new RolBusiness();
-        // assertTrue(rol.getRolNameByCode(usu));
+        assertNotNull(rol.getRolNameByCode(usu));
 
     }
 }
