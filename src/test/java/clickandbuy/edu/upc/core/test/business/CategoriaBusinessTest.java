@@ -25,7 +25,6 @@ public class CategoriaBusinessTest extends TestCase {
     }
 
     public void testExisteCategoria() throws Exception {
-        System.out.println("Existe categoría");
         String nomCategoria = "ANIMALES";
         CategoriaBusiness instance = new CategoriaBusiness();
         Categoria categoria = instance.getCategoriaXNombre(nomCategoria);

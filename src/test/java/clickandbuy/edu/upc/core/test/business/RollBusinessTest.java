@@ -6,31 +6,35 @@ package clickandbuy.edu.upc.core.test.business;
 
 import clickandbuy.upc.edu.core.business.RolBusiness;
 import clickandbuy.upc.edu.core.entity.Rol;
-import clickandbuy.upc.edu.core.entity.Usuario;
+import junit.framework.TestCase;
 import static junit.framework.TestCase.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import org.junit.FixMethodOrder;
-import org.junit.Test;
-import org.junit.runners.MethodSorters;
 
 /**
  *
  * @author carlos
  */
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class RollBusinessTest {
+public class RollBusinessTest extends TestCase {
 
-    public RollBusinessTest() {
+    public RollBusinessTest(String testName) {
+        super(testName);
+    }
+   
+    @Override
+    protected void setUp() throws Exception {
+        super.setUp();
     }
 
-   
+    @Override
+    protected void tearDown() throws Exception {
+        super.tearDown();
+    }
+    
     public void testBExisterol() throws Exception {
-        System.out.println("existerol");
 
-        Integer usu = 2;
-        RolBusiness rol = new RolBusiness();
-        assertEquals(rol.getRolNameByCode(usu),"PROGRAMADOR");
-
+    Integer codigo = 2;
+    String nomRol = "PROGRAMADOR";
+    RolBusiness instance = new RolBusiness();
+    Rol rol = instance.getRolNameByCode(codigo);
+    assertEquals(rol.getRolNombre(), nomRol);
     }
 }
